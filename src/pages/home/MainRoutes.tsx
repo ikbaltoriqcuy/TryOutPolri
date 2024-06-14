@@ -1,0 +1,7 @@
+export enum MainRoutes {
+  ROUTE_HOME = 0,
+  ROUTE_CALCULATOR = 1,
+  ROUTE_TEST_THOROUGHNESS = 2,
+  ROUTE_LOGIN = 3,
+  ROUTE_REGISTER = 4,
+}
