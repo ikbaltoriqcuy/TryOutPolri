@@ -16,7 +16,7 @@ const Jumbotron = () => {
     <ThemeProvider theme={Theme}>
       <Box
         sx={{
-          width: "120vw",
+          width: "100vw",
           height: "100vh",
           backgroundImage:
             'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/bg_polri.jpeg")',
