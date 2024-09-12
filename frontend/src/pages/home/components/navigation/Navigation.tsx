@@ -54,6 +54,7 @@ const Navigation = (props: {currPage: number}) => {
           >
             {labels.map((label, index) => (
               <LabelLink
+                key={index}
                 label={label}
                 path={path[index]}
                 index={index}
