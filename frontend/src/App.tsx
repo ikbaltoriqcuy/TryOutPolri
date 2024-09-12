@@ -13,7 +13,10 @@ function App() {
         <Route path="/profil-langganan" element={<ProfilLangganan/>}/> 
         <Route path="/tes-kecermatan" element={<TesKecermatan/>}/> 
         <Route path="/dashboard" element={<Dashboard page={DashboardRoutes.ROUTE_PROFILE}/>}/>
+        <Route path="/dashboard/edit-profile" element={<Dashboard page={DashboardRoutes.ROUTE_EDIT_PROFILE}/>}/>
+        <Route path="/dashboard/edit-password" element={<Dashboard page={DashboardRoutes.ROUTE_EDIT_PASSWORD}/>}/>
         <Route path="/dashboard/test_kecermatan" element={<Dashboard page={DashboardRoutes.ROUTE_TEST_KECERMATAN}/>}/>  
+        <Route path="/dashboard/test_kecermatan/add" element={<Dashboard page={DashboardRoutes.ROUTE_TEST_KECERMATAN_ADD}/>}/>  
         <Route path="/" element={<Main page={MainRoutes.ROUTE_HOME}/>}/> 
         <Route path="/test_kecermatan" element={<Main page={MainRoutes.ROUTE_TEST_THOROUGHNESS}/>}/> 
         <Route path="/calculator" element={<Main page={MainRoutes.ROUTE_CALCULATOR}/>}/> 

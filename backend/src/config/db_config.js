@@ -3,9 +3,9 @@ const pg = require("pg");
 dotenv.config();
 
 const config = {
-  user: process.env.PG_USER,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_USERPASS,
+  user: process.env.PG_USER || "police_course",
+  database: process.env.PG_DATABASE || "police_course",
+  password: process.env.PG_USERPASS || "@PoliceCourse12",
   port: process.env.PG_PORT,
   host: process.env.PG_HOST,
   max: 20,
@@ -24,8 +24,8 @@ async function dbs() {
   }
 }
 
-const makeDb = ({ db, encryptPassword, comparePassword }) => {
-  return db({ dbs, encryptPassword, comparePassword });
+const makeDb = ({db}) => {
+  return db({dbs});
 };
 
 module.exports = makeDb;
