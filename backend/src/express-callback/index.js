@@ -1,5 +1,12 @@
 const makeExpressCallback = (controller) => {
   return (req, res) => {
+    const token = "4b8f7e2cb21f-47c2-849d-1f7c5942e5b8";
+    
+    if (token != req.headers.token) {
+      res.sendStatus(500);
+      return
+    }
+
     const httpRequest = {
       body: req.body,
       query: req.query,
@@ -17,6 +24,7 @@ const makeExpressCallback = (controller) => {
         "Access-Control-Allow-Origin": "*"
       }
     };
+
     controller(httpRequest)
       .then((httpResponse) => {
         if (httpResponse.headers) {

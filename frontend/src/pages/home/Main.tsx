@@ -8,27 +8,30 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import CalculatorFitness from "./components/calculator/CalculatorFitness";
 import TestSymbol from "./components/test/TestSymbol";
+import { Box, Alert } from "@mui/material";
 
 const Main = (props: { page: MainRoutes }) => {
   return (
     <>
-      <Navigation currPage={props.page} />
-      {(() => {
-        switch (props.page) {
-          case MainRoutes.ROUTE_CALCULATOR:
-            return <CalculatorPage />;
-          case MainRoutes.ROUTE_TEST_THOROUGHNESS:
-            return <TestThoroughnessPage />;
-          case MainRoutes.ROUTE_HOME:
-            return <HomePage />;
-          case MainRoutes.ROUTE_LOGIN:
-            return <LoginPage />;
-          case MainRoutes.ROUTE_REGISTER:
-            return <RegisterPage />;
-          default:
-            return <HomePage />;
-        }
-      })()}
+      <Box>
+        <Navigation currPage={props.page} />
+        {(() => {
+          switch (props.page) {
+            case MainRoutes.ROUTE_CALCULATOR:
+              return <CalculatorPage />;
+            case MainRoutes.ROUTE_TEST_THOROUGHNESS:
+              return <TestThoroughnessPage />;
+            case MainRoutes.ROUTE_HOME:
+              return <HomePage />;
+            case MainRoutes.ROUTE_LOGIN:
+              return <LoginPage />;
+            case MainRoutes.ROUTE_REGISTER:
+              return <RegisterPage />;
+            default:
+              return <HomePage />;
+          }
+        })()}
+      </Box>
     </>
   );
 };
