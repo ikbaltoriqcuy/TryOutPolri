@@ -3,6 +3,8 @@ import Navigation from "./components/navigation/Navigation";
 import Jumbotron from "./components/main/jumbotron/Jumbotron";
 import Footer from "./components/navigation/Footer";
 import TestimonialList from "./components/main/testimonial/TestimonialList";
+import FiturList from "./components/main/fitur/FiturList";
+import VisiMisiList from "./components/main/visimisi/VisiMisiList";
 import { MainRoutes } from "./MainRoutes";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
@@ -40,6 +42,8 @@ const HomePage = () => {
   return (
     <>
       <Jumbotron />
+      <FiturList />
+      <VisiMisiList />
       <TestimonialList />
       <Footer />
     </>

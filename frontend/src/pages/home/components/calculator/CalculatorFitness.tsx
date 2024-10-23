@@ -9,33 +9,822 @@ import {
   MenuItem,
 } from "@mui/material";
 
+interface FormData {
+  lari: number;
+  pullUp: number;
+  sitUp: number;
+  pushUp: number;
+  shuttleRun: number;
+  renang: number;
+}
+
 const genders = [
-  { value: "pria", label: "Pria" },
-  { value: "wanita", label: "Wanita" },
+  { value: 'pria', label: 'Pria' },
+  { value: 'wanita', label: 'Wanita' },
 ];
 
 const CalculatorFitness: React.FC = () => {
-  const [formValues, setFormValues] = React.useState({
-    gender: "",
-    runDistance: "",
-    pullUps: "",
-    sitUps: "",
-    pushUps: "",
-    shuttleRun: "",
-    swimming: "",
+  const [formData, setFormData] = React.useState<FormData>({
+    lari: 0,
+    pullUp: 0,
+    sitUp: 0,
+    pushUp: 0,
+    shuttleRun: 0,
+    renang: 0,
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues({
-      ...formValues,
-      [event.target.name]: event.target.value,
-    });
+  
+
+  const [jenisKelamin, setJenisKelamin] = React.useState<string>('pria');
+  const [nilaiLari, setNilaiLari] = React.useState<number | null>(null);
+  const [nilaiPullUp, setNilaiPullUp] = React.useState<number | null>(null);
+  const [nilaiSitUp, setNilaiSitUp] = React.useState<number | null>(null);
+  const [nilaiPushUp, setNilaiPushUp] = React.useState<number | null>(null);
+  const [nilaiShuttleRun, setNilaiShuttleRun] = React.useState<number | null>(null);
+  const [nilaiRenang, setNilaiRenang] = React.useState<number | null>(null);
+  const [nilaiRataRata, setNilaiRataRata] = React.useState<number | null>(null);
+
+
+  // Fungsi untuk menghitung nilai lari berdasarkan jenis kelamin
+  const hitungNilaiLari = (jarak: number, jenisKelamin: string) => {
+    if (jenisKelamin === 'pria') {
+      if (jarak >= 1349 && jarak <= 1370) return 1;
+      if (jarak >= 1371 && jarak <= 1391) return 2;
+      if (jarak >= 1392 && jarak <= 1412) return 3;
+      if (jarak >= 1413 && jarak <= 1433) return 4;
+      if (jarak >= 1434 && jarak <= 1454) return 5;
+      if (jarak >= 1455 && jarak <= 1475) return 6;
+      if (jarak >= 1476 && jarak <= 1496) return 7;
+      if (jarak >= 1497 && jarak <= 1517) return 8;
+      if (jarak >= 1518 && jarak <= 1538) return 9;
+      if (jarak >= 1539 && jarak <= 1560) return 10;
+      if (jarak >= 1561 && jarak <= 1581) return 11;
+      if (jarak >= 1582 && jarak <= 1602) return 12;
+      if (jarak >= 1603 && jarak <= 1624) return 13;
+      if (jarak >= 1625 && jarak <= 1644) return 14;
+      if (jarak >= 1645 && jarak <= 1665) return 15;
+      if (jarak >= 1666 && jarak <= 1686) return 16;
+      if (jarak >= 1687 && jarak <= 1707) return 17;
+      if (jarak >= 1708 && jarak <= 1728) return 18;
+      if (jarak >= 1729 && jarak <= 1749) return 19;
+      if (jarak >= 1750 && jarak <= 1771) return 20;
+      if (jarak >= 1772 && jarak <= 1792) return 21;
+      if (jarak >= 1793 && jarak <= 1813) return 22;
+      if (jarak >= 1814 && jarak <= 1835) return 23;
+      if (jarak >= 1836 && jarak <= 1856) return 24;
+      if (jarak >= 1857 && jarak <= 1877) return 25;
+      if (jarak >= 1878 && jarak <= 1898) return 26;
+      if (jarak >= 1899 && jarak <= 1919) return 27;
+      if (jarak >= 1920 && jarak <= 1940) return 28;
+      if (jarak >= 1941 && jarak <= 1961) return 29;
+      if (jarak >= 1962 && jarak <= 1983) return 30;
+      if (jarak >= 1984 && jarak <= 2004) return 31;
+      if (jarak >= 2005 && jarak <= 2025) return 32;
+      if (jarak >= 2026 && jarak <= 2047) return 33;
+      if (jarak >= 2048 && jarak <= 2068) return 34;
+      if (jarak >= 2069 && jarak <= 2089) return 35;
+      if (jarak >= 2090 && jarak <= 2110) return 36;
+      if (jarak >= 2111 && jarak <= 2131) return 37;
+      if (jarak >= 2132 && jarak <= 2152) return 38;
+      if (jarak >= 2153 && jarak <= 2173) return 39;
+      if (jarak >= 2174 && jarak <= 2194) return 40;
+      if (jarak >= 2195 && jarak <= 2215) return 41;
+      if (jarak >= 2216 && jarak <= 2236) return 42;
+      if (jarak >= 2237 && jarak <= 2258) return 43;
+      if (jarak >= 2259 && jarak <= 2279) return 44;
+      if (jarak >= 2280 && jarak <= 2300) return 45;
+      if (jarak >= 2301 && jarak <= 2321) return 46;
+      if (jarak >= 2322 && jarak <= 2342) return 47;
+      if (jarak >= 2343 && jarak <= 2363) return 48;
+      if (jarak >= 2364 && jarak <= 2385) return 49;
+      if (jarak >= 2386 && jarak <= 2406) return 50;
+      if (jarak >= 2407 && jarak <= 2427) return 51;
+      if (jarak >= 2428 && jarak <= 2448) return 52;
+      if (jarak >= 2449 && jarak <= 2469) return 53;
+      if (jarak >= 2470 && jarak <= 2490) return 54;
+      if (jarak >= 2491 && jarak <= 2512) return 55;
+      if (jarak >= 2513 && jarak <= 2533) return 56;
+      if (jarak >= 2534 && jarak <= 2554) return 57;
+      if (jarak >= 2555 && jarak <= 2575) return 58;
+      if (jarak >= 2576 && jarak <= 2596) return 59;
+      if (jarak >= 2597 && jarak <= 2617) return 60;
+      if (jarak >= 2618 && jarak <= 2638) return 61;
+      if (jarak >= 2639 && jarak <= 2660) return 62;
+      if (jarak >= 2661 && jarak <= 2681) return 63;
+      if (jarak >= 2682 && jarak <= 2702) return 64;
+      if (jarak >= 2703 && jarak <= 2724) return 65;
+      if (jarak >= 2725 && jarak <= 2745) return 66;
+      if (jarak >= 2746 && jarak <= 2766) return 67;
+      if (jarak >= 2767 && jarak <= 2787) return 68;
+      if (jarak >= 2788 && jarak <= 2808) return 69;
+      if (jarak >= 2809 && jarak <= 2819) return 70;
+      if (jarak >= 2820 && jarak <= 2850) return 71;
+      if (jarak >= 2851 && jarak <= 2871) return 72;
+      if (jarak >= 2872 && jarak <= 2892) return 73;
+      if (jarak >= 2893 && jarak <= 2913) return 74;
+      if (jarak >= 2914 && jarak <= 2935) return 75;
+      if (jarak >= 2936 && jarak <= 2956) return 76;
+      if (jarak >= 2957 && jarak <= 2977) return 77;
+      if (jarak >= 2978 && jarak <= 2998) return 78;
+      if (jarak >= 2999 && jarak <= 3020) return 79;
+      if (jarak >= 3021 && jarak <= 3040) return 80;
+      if (jarak >= 3041 && jarak <= 3061) return 81;
+      if (jarak >= 3062 && jarak <= 3083) return 82;
+      if (jarak >= 3084 && jarak <= 3104) return 83;
+      if (jarak >= 3105 && jarak <= 3125) return 84;
+      if (jarak >= 3126 && jarak <= 3147) return 85;
+      if (jarak >= 3148 && jarak <= 3168) return 86;
+      if (jarak >= 3169 && jarak <= 3189) return 87;
+      if (jarak >= 3190 && jarak <= 3210) return 88;
+      if (jarak >= 3211 && jarak <= 3231) return 89;
+      if (jarak >= 3232 && jarak <= 3252) return 90;
+      if (jarak >= 3253 && jarak <= 3316) return 91;
+      if (jarak >= 3317 && jarak <= 3337) return 94;
+      if (jarak >= 3338 && jarak <= 3368) return 95;
+      if (jarak >= 3369 && jarak <= 3178) return 96;
+      if (jarak >= 3180 && jarak <= 3400) return 97;
+      if (jarak >= 3401 && jarak <= 3421) return 98;
+      if (jarak >= 3422 && jarak <= 3443) return 99;
+      if (jarak >= 3444) return 100;
+      return 0;
+    } else {
+      if (jarak >= 1013 && jarak <= 1033) return 1; // Contoh nilai untuk wanita
+      if (jarak >= 1034 && jarak <= 1055) return 2;
+      if (jarak >= 1056 && jarak <= 1075) return 3;
+      if (jarak >= 1076 && jarak <= 1096) return 4;
+      if (jarak >= 1097 && jarak <= 1117) return 5;
+      if (jarak >= 1118 && jarak <= 1138) return 6;
+      if (jarak >= 1139 && jarak <= 1160) return 7;
+      if (jarak >= 1161 && jarak <= 1180) return 8;
+      if (jarak >= 1181 && jarak <= 1201) return 9;
+      if (jarak >= 1202 && jarak <= 1222) return 10;
+      if (jarak >= 1223 && jarak <= 1243) return 11;
+      if (jarak >= 1244 && jarak <= 1265) return 12;
+      if (jarak >= 1266 && jarak <= 1286) return 13;
+      if (jarak >= 1287 && jarak <= 1307) return 14;
+      if (jarak >= 1308 && jarak <= 1330) return 15;
+      if (jarak >= 1331 && jarak <= 1351) return 16;
+      if (jarak >= 1352 && jarak <= 1370) return 17;
+      if (jarak >= 1371 && jarak <= 1391) return 18;
+      if (jarak >= 1392 && jarak <= 1411) return 19;
+      if (jarak >= 1412 && jarak <= 1433) return 20;
+      if (jarak >= 1434 && jarak <= 1454) return 21;
+      if (jarak >= 1455 && jarak <= 1475) return 22;
+      if (jarak >= 1476 && jarak <= 1496) return 23;
+      if (jarak >= 1497 && jarak <= 1517) return 24;
+      if (jarak >= 1518 && jarak <= 1538) return 25;
+      if (jarak >= 1539 && jarak <= 1581) return 26;
+      if (jarak >= 1582 && jarak <= 1602) return 28;
+      if (jarak >= 1603 && jarak <= 1624) return 29;
+      if (jarak >= 1625 && jarak <= 1644) return 30;
+      if (jarak >= 1645 && jarak <= 1665) return 31;
+      if (jarak >= 1666 && jarak <= 1686) return 32;
+      if (jarak >= 1687 && jarak <= 1707) return 33;
+      if (jarak >= 1708 && jarak <= 1728) return 34;
+      if (jarak >= 1729 && jarak <= 1749) return 35;
+      if (jarak >= 1750 && jarak <= 1771) return 36;
+      if (jarak >= 1772 && jarak <= 1792) return 37;
+      if (jarak >= 1793 && jarak <= 1813) return 38;
+      if (jarak >= 1814 && jarak <= 1835) return 39;
+      if (jarak >= 1836 && jarak <= 1856) return 40;
+      if (jarak >= 1857 && jarak <= 1877) return 41;
+      if (jarak >= 1878 && jarak <= 1898) return 42;
+      if (jarak >= 1899 && jarak <= 1919) return 43;
+      if (jarak >= 1920 && jarak <= 1940) return 44;
+      if (jarak >= 1941 && jarak <= 1961) return 45;
+      if (jarak >= 1962 && jarak <= 1983) return 46;
+      if (jarak >= 1984 && jarak <= 2004) return 47;
+      if (jarak >= 2005 && jarak <= 2025) return 48;
+      if (jarak >= 2026 && jarak <= 2047) return 49;
+      if (jarak >= 2048 && jarak <= 2068) return 50;
+      if (jarak >= 2069 && jarak <= 2110) return 51;
+      if (jarak >= 2111 && jarak <= 2131) return 53;
+      if (jarak >= 2132 && jarak <= 2152) return 54;
+      if (jarak >= 2153 && jarak <= 2173) return 55;
+      if (jarak >= 2174 && jarak <= 2194) return 56;
+      if (jarak >= 2195 && jarak <= 2215) return 57;
+      if (jarak >= 2216 && jarak <= 2236) return 58;
+      if (jarak >= 2237 && jarak <= 2258) return 59;
+      if (jarak >= 2259 && jarak <= 2279) return 60;
+      if (jarak >= 2280 && jarak <= 2300) return 61;
+      if (jarak >= 2301 && jarak <= 2321) return 62;
+      if (jarak >= 2322 && jarak <= 2342) return 63;
+      if (jarak >= 2343 && jarak <= 2363) return 64;
+      if (jarak >= 2364 && jarak <= 2385) return 65;
+      if (jarak >= 2386 && jarak <= 2406) return 66;
+      if (jarak >= 2407 && jarak <= 2427) return 67;
+      if (jarak >= 2428 && jarak <= 2448) return 68;
+      if (jarak >= 2449 && jarak <= 2469) return 69;
+      if (jarak >= 2470 && jarak <= 2490) return 70;
+      if (jarak >= 2491 && jarak <= 2512) return 71;
+      if (jarak >= 2513 && jarak <= 2533) return 72;
+      if (jarak >= 2534 && jarak <= 2554) return 73;
+      if (jarak >= 2555 && jarak <= 2575) return 74;
+      if (jarak >= 2576 && jarak <= 2596) return 75;
+      if (jarak >= 2597 && jarak <= 2617) return 76;
+      if (jarak >= 2618 && jarak <= 2638) return 77;
+      if (jarak >= 2639 && jarak <= 2660) return 78;
+      if (jarak >= 2661 && jarak <= 2681) return 79;
+      if (jarak >= 2682 && jarak <= 2702) return 80;
+      if (jarak >= 2703 && jarak <= 2724) return 81;
+      if (jarak >= 2725 && jarak <= 2745) return 82;
+      if (jarak >= 2746 && jarak <= 2766) return 83;
+      if (jarak >= 2767 && jarak <= 2787) return 84;
+      if (jarak >= 2788 && jarak <= 2808) return 85;
+      if (jarak >= 2809 && jarak <= 2829) return 86;
+      if (jarak >= 2830 && jarak <= 2850) return 87;
+      if (jarak >= 2851 && jarak <= 2871) return 88;
+      if (jarak >= 2872 && jarak <= 2892) return 89;
+      if (jarak >= 2893 && jarak <= 2913) return 90;
+      if (jarak >= 2914 && jarak <= 2935) return 91;
+      if (jarak >= 2936 && jarak <= 2956) return 92;
+      if (jarak >= 2957 && jarak <= 2977) return 93;
+      if (jarak >= 2978 && jarak <= 2998) return 94;
+      if (jarak >= 2999 && jarak <= 3020) return 95;
+      if (jarak >= 3021 && jarak <= 3040) return 96;
+      if (jarak >= 3041 && jarak <= 3061) return 97;
+      if (jarak >= 3062 && jarak <= 3083) return 98;
+      if (jarak >= 3084 && jarak <= 3104) return 99;
+      if (jarak >= 3105 && jarak <= 3401) return 100;
+      return 0;
+    }
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle form submission here
-    console.log(formValues);
+  // Fungsi untuk menghitung nilai Pull Up berdasarkan jenis kelamin
+  const hitungNilaiPullUp = (pullup: number, jenisKelamin: string) => {
+    if (jenisKelamin === 'pria') {
+      if (pullup >= 1) return 4;
+      if (pullup >= 2) return 8;
+      if (pullup >= 3) return 14;
+      if (pullup >= 4) return 20;
+      if (pullup >= 5) return 26;
+      if (pullup >= 6) return 32;
+      if (pullup >= 7) return 39;
+      if (pullup >= 8) return 46;
+      if (pullup >= 9) return 52;
+      if (pullup >= 10) return 58;
+      if (pullup >= 11) return 64;
+      if (pullup >= 12) return 70;
+      if (pullup >= 13) return 76;
+      if (pullup >= 14) return 82;
+      if (pullup >= 15) return 88;
+      if (pullup >= 16) return 94;
+      if (pullup >= 17) return 100;
+  
+      return 0;
+    } else {
+      if (pullup >= 33) return 2; // Contoh untuk nilai wanita
+      if (pullup >= 34) return 5;
+      if (pullup >= 35) return 7;
+      if (pullup >= 36) return 10;
+      if (pullup >= 37) return 12;
+      if (pullup >= 38) return 14;
+      if (pullup >= 39) return 17;
+      if (pullup >= 40) return 20;
+      if (pullup >= 41) return 22;
+      if (pullup >= 42) return 25;
+      if (pullup >= 43) return 27;
+      if (pullup >= 44) return 30;
+      if (pullup >= 45) return 32;
+      if (pullup >= 46) return 34;
+      if (pullup >= 47) return 37;
+      if (pullup >= 48) return 39;
+      if (pullup >= 49) return 42;
+      if (pullup >= 50) return 44;
+      if (pullup >= 51) return 47;
+      if (pullup >= 52) return 52;
+      if (pullup >= 53) return 55;
+      if (pullup >= 54) return 56;
+      if (pullup >= 55) return 59;
+      if (pullup >= 56) return 62;
+      if (pullup >= 57) return 64;
+      if (pullup >= 58) return 67;
+      if (pullup >= 59) return 69;
+      if (pullup >= 60) return 72;
+      if (pullup >= 61) return 74;
+      if (pullup >= 62) return 75;
+      if (pullup >= 63) return 77;
+      if (pullup >= 64) return 80;
+      if (pullup >= 65) return 82;
+      if (pullup >= 66) return 85;
+      if (pullup >= 67) return 87;
+      if (pullup >= 68) return 90;
+      if (pullup >= 69) return 92;
+      if (pullup >= 70) return 95;
+      if (pullup >= 71) return 97;
+      if (pullup >= 72) return 100;
+  
+      return 0;
+    }
+  };
+
+  
+  // Fungsi untuk menghitung nilai Sit Up berdasarkan jenis kelamin
+  const hitungNilaiSitUp = (situp: number, jenisKelamin: string) => {
+    if (jenisKelamin === 'pria') {
+      if (situp >= 6) return 1;
+      if (situp >= 7) return 2;
+      if (situp >= 8) return 4;
+      if (situp >= 9) return 6;
+      if (situp >= 10) return 8;
+      if (situp >= 11) return 10;
+      if (situp >= 12) return 12;
+      if (situp >= 13) return 14;
+      if (situp >= 14) return 16;
+      if (situp >= 15) return 18;
+      if (situp >= 16) return 20;
+      if (situp >= 17) return 22;
+      if (situp >= 18) return 24;
+      if (situp >= 19) return 26;
+      if (situp >= 20) return 28;
+      if (situp >= 21) return 30;
+      if (situp >= 22) return 32;
+      if (situp >= 23) return 35;
+      if (situp >= 24) return 38;
+      if (situp >= 25) return 41;
+      if (situp >= 26) return 44;
+      if (situp >= 27) return 48;
+      if (situp >= 28) return 52;
+      if (situp >= 29) return 56;
+      if (situp >= 30) return 60;
+      if (situp >= 31) return 64;
+      if (situp >= 32) return 68;
+      if (situp >= 33) return 72;
+      if (situp >= 34) return 76;
+      if (situp >= 35) return 80;
+      if (situp >= 36) return 84;
+      if (situp >= 37) return 88;
+      if (situp >= 38) return 92;
+      if (situp >= 39) return 96;
+      if (situp >= 40) return 100;
+      return 0;
+    } else {
+      if (situp >= 17) return 1;  // Contoh untuk nilai wanita
+      if (situp >= 18) return 3;
+      if (situp >= 19) return 6;
+      if (situp >= 20) return 10;
+      if (situp >= 21) return 12;
+      if (situp >= 22) return 15;
+      if (situp >= 23) return 19;
+      if (situp >= 24) return 21;
+      if (situp >= 25) return 24;
+      if (situp >= 26) return 26;
+      if (situp >= 27) return 29;
+      if (situp >= 28) return 33;
+      if (situp >= 29) return 37;
+      if (situp >= 30) return 39;
+      if (situp >= 31) return 42;
+      if (situp >= 32) return 46;
+      if (situp >= 33) return 48;
+      if (situp >= 34) return 51;
+      if (situp >= 35) return 55;
+      if (situp >= 36) return 57;
+      if (situp >= 37) return 60;
+      if (situp >= 38) return 64;
+      if (situp >= 39) return 66;
+      if (situp >= 40) return 69;
+      if (situp >= 41) return 73;
+      if (situp >= 42) return 75;
+      if (situp >= 43) return 78;
+      if (situp >= 44) return 82;
+      if (situp >= 45) return 84;
+      if (situp >= 46) return 87;
+      if (situp >= 47) return 91;
+      if (situp >= 48) return 93;
+      if (situp >= 49) return 96;
+      if (situp >= 50) return 100;
+
+      return 0;
+    }
+  };
+
+
+
+// Fungsi untuk menghitung nilai Push Up berdasarkan jenis kelamin
+const hitungNilaiPushUp = (pushup: number, jenisKelamin: string) => {
+  if (jenisKelamin === 'pria') {
+    if (pushup >= 1) return 3;
+    if (pushup >= 2) return 4;
+    if (pushup >= 3) return 5;
+    if (pushup >= 4) return 6;
+    if (pushup >= 5) return 7;
+    if (pushup >= 6) return 9;
+    if (pushup >= 7) return 11;
+    if (pushup >= 8) return 13;
+    if (pushup >= 9) return 15;
+    if (pushup >= 10) return 17;
+    if (pushup >= 11) return 19;
+    if (pushup >= 12) return 21;
+    if (pushup >= 13) return 23;
+    if (pushup >= 14) return 26;
+    if (pushup >= 15) return 29;
+    if (pushup >= 16) return 32;
+    if (pushup >= 17) return 34;
+    if (pushup >= 18) return 36;
+    if (pushup >= 19) return 38;
+    if (pushup >= 20) return 40;
+    if (pushup >= 21) return 42;
+    if (pushup >= 22) return 44;
+    if (pushup >= 23) return 46;
+    if (pushup >= 24) return 48;
+    if (pushup >= 25) return 50;
+    if (pushup >= 26) return 52;
+    if (pushup >= 27) return 55;
+    if (pushup >= 28) return 58;
+    if (pushup >= 29) return 61;
+    if (pushup >= 30) return 64;
+    if (pushup >= 31) return 67;
+    if (pushup >= 32) return 70;
+    if (pushup >= 33) return 73;
+    if (pushup >= 34) return 76;
+    if (pushup >= 35) return 79;
+    if (pushup >= 36) return 82;
+    if (pushup >= 37) return 85;
+    if (pushup >= 38) return 88;
+    if (pushup >= 39) return 91;
+    if (pushup >= 40) return 94;
+    if (pushup >= 41) return 97;
+    if (pushup >= 42) return 100;
+    if (pushup > 43) return 100;
+    return 0;
+  } else {
+    if (pushup >= 1 && pushup <= 8) return 1; // Contoh nilai untuk wanita
+    if (pushup >= 9) return 2;
+    if (pushup >= 10) return 6;
+    if (pushup >= 11) return 9;
+    if (pushup >= 12) return 13;
+    if (pushup >= 13) return 16;
+    if (pushup >= 14) return 20;
+    if (pushup >= 15) return 23;
+    if (pushup >= 16) return 27;
+    if (pushup >= 17) return 30;
+    if (pushup >= 18) return 34;
+    if (pushup >= 19) return 37;
+    if (pushup >= 20) return 41;
+    if (pushup >= 21) return 44;
+    if (pushup >= 22) return 48;
+    if (pushup >= 23) return 51;
+    if (pushup >= 24) return 55;
+    if (pushup >= 25) return 58;
+    if (pushup >= 26) return 62;
+    if (pushup >= 27) return 65;
+    if (pushup >= 28) return 69;
+    if (pushup >= 29) return 72;
+    if (pushup >= 30) return 76;
+    if (pushup >= 31) return 79;
+    if (pushup >= 32) return 83;
+    if (pushup >= 33) return 86;
+    if (pushup >= 34) return 90;
+    if (pushup >= 35) return 93;
+    if (pushup >= 36) return 97;
+    if (pushup >= 37) return 100;
+
+    return 0;
+  }
+};
+
+// Fungsi untuk menghitung nilai Shuttle Run berdasarkan jenis kelamin
+const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
+  if (jenisKelamin === 'pria') {
+    if (shuttlerun >= 1) return 3;
+    if (shuttlerun >= 2) return 4;
+    if (shuttlerun >= 3) return 5;
+    if (shuttlerun >= 4) return 6;
+    if (shuttlerun >= 5) return 7;
+    if (shuttlerun >= 6) return 9;
+    if (shuttlerun >= 7) return 11;
+    if (shuttlerun >= 8) return 13;
+    if (shuttlerun >= 9) return 15;
+    if (shuttlerun >= 10) return 17;
+    if (shuttlerun >= 11) return 19;
+    if (shuttlerun >= 12) return 21;
+    if (shuttlerun >= 13) return 23;
+    if (shuttlerun >= 14) return 26;
+    if (shuttlerun >= 15) return 29;
+    if (shuttlerun >= 16) return 32;
+    if (shuttlerun >= 17) return 34;
+    if (shuttlerun >= 18) return 36;
+    if (shuttlerun >= 19) return 38;
+    if (shuttlerun >= 20) return 40;
+    if (shuttlerun >= 21) return 42;
+    if (shuttlerun >= 22) return 44;
+    if (shuttlerun >= 23) return 46;
+    if (shuttlerun >= 24) return 48;
+    if (shuttlerun >= 25) return 50;
+    if (shuttlerun >= 26) return 52;
+    if (shuttlerun >= 27) return 55;
+    if (shuttlerun >= 28) return 58;
+    if (shuttlerun >= 29) return 61;
+    if (shuttlerun >= 30) return 64;
+    if (shuttlerun >= 31) return 67;
+    if (shuttlerun >= 32) return 70;
+    if (shuttlerun >= 33) return 73;
+    if (shuttlerun >= 34) return 76;
+    if (shuttlerun >= 35) return 79;
+    if (shuttlerun >= 36) return 82;
+    if (shuttlerun >= 37) return 85;
+    if (shuttlerun >= 38) return 88;
+    if (shuttlerun >= 39) return 91;
+    if (shuttlerun >= 40) return 94;
+    if (shuttlerun >= 41) return 97;
+    if (shuttlerun >= 42) return 100;
+    if (shuttlerun > 43) return 100;
+    return 0;
+  } else {
+    if (shuttlerun >= 1 && shuttlerun <= 8) return 1; // Contoh nilai untuk wanita
+    if (shuttlerun >= 9) return 2;
+    if (shuttlerun >= 10) return 6;
+    if (shuttlerun >= 11) return 9;
+    if (shuttlerun >= 12) return 13;
+    if (shuttlerun >= 13) return 16;
+    if (shuttlerun >= 14) return 20;
+    if (shuttlerun >= 15) return 23;
+    if (shuttlerun >= 16) return 27;
+    if (shuttlerun >= 17) return 30;
+    if (shuttlerun >= 18) return 34;
+    if (shuttlerun >= 19) return 37;
+    if (shuttlerun >= 20) return 41;
+    if (shuttlerun >= 21) return 44;
+    if (shuttlerun >= 22) return 48;
+    if (shuttlerun >= 23) return 51;
+    if (shuttlerun >= 24) return 55;
+    if (shuttlerun >= 25) return 58;
+    if (shuttlerun >= 26) return 62;
+    if (shuttlerun >= 27) return 65;
+    if (shuttlerun >= 28) return 69;
+    if (shuttlerun >= 29) return 72;
+    if (shuttlerun >= 30) return 76;
+    if (shuttlerun >= 31) return 79;
+    if (shuttlerun >= 32) return 83;
+    if (shuttlerun >= 33) return 86;
+    if (shuttlerun >= 34) return 90;
+    if (shuttlerun >= 35) return 93;
+    if (shuttlerun >= 36) return 97;
+    if (shuttlerun >= 37) return 100;
+
+    return 0;
+  }
+};
+
+
+
+    // Fungsi untuk menghitung nilai Renang berdasarkan jenis kelamin
+    const hitungNilaiRenang = (renang: number, jenisKelamin: string) => {
+      if (jenisKelamin === 'pria') {
+        if (renang >= 1349 && renang <= 1370) return 1;
+        if (renang >= 1371 && renang <= 1391) return 2;
+        if (renang >= 1392 && renang <= 1412) return 3;
+        if (renang >= 1413 && renang <= 1433) return 4;
+        if (renang >= 1434 && renang <= 1454) return 5;
+        if (renang >= 1455 && renang <= 1475) return 6;
+        if (renang >= 1476 && renang <= 1496) return 7;
+        if (renang >= 1497 && renang <= 1517) return 8;
+        if (renang >= 1518 && renang <= 1538) return 9;
+        if (renang >= 1539 && renang <= 1560) return 10;
+        if (renang >= 1561 && renang <= 1581) return 11;
+        if (renang >= 1582 && renang <= 1602) return 12;
+        if (renang >= 1603 && renang <= 1624) return 13;
+        if (renang >= 1625 && renang <= 1644) return 14;
+        if (renang >= 1645 && renang <= 1665) return 15;
+        if (renang >= 1666 && renang <= 1686) return 16;
+        if (renang >= 1687 && renang <= 1707) return 17;
+        if (renang >= 1708 && renang <= 1728) return 18;
+        if (renang >= 1729 && renang <= 1749) return 19;
+        if (renang >= 1750 && renang <= 1771) return 20;
+        if (renang >= 1772 && renang <= 1792) return 21;
+        if (renang >= 1793 && renang <= 1813) return 22;
+        if (renang >= 1814 && renang <= 1835) return 23;
+        if (renang >= 1836 && renang <= 1856) return 24;
+        if (renang >= 1857 && renang <= 1877) return 25;
+        if (renang >= 1878 && renang <= 1898) return 26;
+        if (renang >= 1899 && renang <= 1919) return 27;
+        if (renang >= 1920 && renang <= 1940) return 28;
+        if (renang >= 1941 && renang <= 1961) return 29;
+        if (renang >= 1962 && renang <= 1983) return 30;
+        if (renang >= 1984 && renang <= 2004) return 31;
+        if (renang >= 2005 && renang <= 2025) return 32;
+        if (renang >= 2026 && renang <= 2047) return 33;
+        if (renang >= 2048 && renang <= 2068) return 34;
+        if (renang >= 2069 && renang <= 2089) return 35;
+        if (renang >= 2090 && renang <= 2110) return 36;
+        if (renang >= 2111 && renang <= 2131) return 37;
+        if (renang >= 2132 && renang <= 2152) return 38;
+        if (renang >= 2153 && renang <= 2173) return 39;
+        if (renang >= 2174 && renang <= 2194) return 40;
+        if (renang >= 2195 && renang <= 2215) return 41;
+        if (renang >= 2216 && renang <= 2236) return 42;
+        if (renang >= 2237 && renang <= 2258) return 43;
+        if (renang >= 2259 && renang <= 2279) return 44;
+        if (renang >= 2280 && renang <= 2300) return 45;
+        if (renang >= 2301 && renang <= 2321) return 46;
+        if (renang >= 2322 && renang <= 2342) return 47;
+        if (renang >= 2343 && renang <= 2363) return 48;
+        if (renang >= 2364 && renang <= 2385) return 49;
+        if (renang >= 2386 && renang <= 2406) return 50;
+        if (renang >= 2407 && renang <= 2427) return 51;
+        if (renang >= 2428 && renang <= 2448) return 52;
+        if (renang >= 2449 && renang <= 2469) return 53;
+        if (renang >= 2470 && renang <= 2490) return 54;
+        if (renang >= 2491 && renang <= 2512) return 55;
+        if (renang >= 2513 && renang <= 2533) return 56;
+        if (renang >= 2534 && renang <= 2554) return 57;
+        if (renang >= 2555 && renang <= 2575) return 58;
+        if (renang >= 2576 && renang <= 2596) return 59;
+        if (renang >= 2597 && renang <= 2617) return 60;
+        if (renang >= 2618 && renang <= 2638) return 61;
+        if (renang >= 2639 && renang <= 2660) return 62;
+        if (renang >= 2661 && renang <= 2681) return 63;
+        if (renang >= 2682 && renang <= 2702) return 64;
+        if (renang >= 2703 && renang <= 2724) return 65;
+        if (renang >= 2725 && renang <= 2745) return 66;
+        if (renang >= 2746 && renang <= 2766) return 67;
+        if (renang >= 2767 && renang <= 2787) return 68;
+        if (renang >= 2788 && renang <= 2808) return 69;
+        if (renang >= 2809 && renang <= 2819) return 70;
+        if (renang >= 2820 && renang <= 2850) return 71;
+        if (renang >= 2851 && renang <= 2871) return 72;
+        if (renang >= 2872 && renang <= 2892) return 73;
+        if (renang >= 2893 && renang <= 2913) return 74;
+        if (renang >= 2914 && renang <= 2935) return 75;
+        if (renang >= 2936 && renang <= 2956) return 76;
+        if (renang >= 2957 && renang <= 2977) return 77;
+        if (renang >= 2978 && renang <= 2998) return 78;
+        if (renang >= 2999 && renang <= 3020) return 79;
+        if (renang >= 3021 && renang <= 3040) return 80;
+        if (renang >= 3041 && renang <= 3061) return 81;
+        if (renang >= 3062 && renang <= 3083) return 82;
+        if (renang >= 3084 && renang <= 3104) return 83;
+        if (renang >= 3105 && renang <= 3125) return 84;
+        if (renang >= 3126 && renang <= 3147) return 85;
+        if (renang >= 3148 && renang <= 3168) return 86;
+        if (renang >= 3169 && renang <= 3189) return 87;
+        if (renang >= 3190 && renang <= 3210) return 88;
+        if (renang >= 3211 && renang <= 3231) return 89;
+        if (renang >= 3232 && renang <= 3252) return 90;
+        if (renang >= 3253 && renang <= 3316) return 91;
+        if (renang >= 3317 && renang <= 3337) return 94;
+        if (renang >= 3338 && renang <= 3368) return 95;
+        if (renang >= 3369 && renang <= 3178) return 96;
+        if (renang >= 3180 && renang <= 3400) return 97;
+        if (renang >= 3401 && renang <= 3421) return 98;
+        if (renang >= 3422 && renang <= 3443) return 99;
+        if (renang >= 3444) return 100;
+        return 0;
+      } else {
+        if (renang >= 1013 && renang <= 1033) return 1; // Contoh nilai untuk wanita
+        if (renang >= 1034 && renang <= 1055) return 2;
+        if (renang >= 1056 && renang <= 1075) return 3;
+        if (renang >= 1076 && renang <= 1096) return 4;
+        if (renang >= 1097 && renang <= 1117) return 5;
+        if (renang >= 1118 && renang <= 1138) return 6;
+        if (renang >= 1139 && renang <= 1160) return 7;
+        if (renang >= 1161 && renang <= 1180) return 8;
+        if (renang >= 1181 && renang <= 1201) return 9;
+        if (renang >= 1202 && renang <= 1222) return 10;
+        if (renang >= 1223 && renang <= 1243) return 11;
+        if (renang >= 1244 && renang <= 1265) return 12;
+        if (renang >= 1266 && renang <= 1286) return 13;
+        if (renang >= 1287 && renang <= 1307) return 14;
+        if (renang >= 1308 && renang <= 1330) return 15;
+        if (renang >= 1331 && renang <= 1351) return 16;
+        if (renang >= 1352 && renang <= 1370) return 17;
+        if (renang >= 1371 && renang <= 1391) return 18;
+        if (renang >= 1392 && renang <= 1411) return 19;
+        if (renang >= 1412 && renang <= 1433) return 20;
+        if (renang >= 1434 && renang <= 1454) return 21;
+        if (renang >= 1455 && renang <= 1475) return 22;
+        if (renang >= 1476 && renang <= 1496) return 23;
+        if (renang >= 1497 && renang <= 1517) return 24;
+        if (renang >= 1518 && renang <= 1538) return 25;
+        if (renang >= 1539 && renang <= 1581) return 26;
+        if (renang >= 1582 && renang <= 1602) return 28;
+        if (renang >= 1603 && renang <= 1624) return 29;
+        if (renang >= 1625 && renang <= 1644) return 30;
+        if (renang >= 1645 && renang <= 1665) return 31;
+        if (renang >= 1666 && renang <= 1686) return 32;
+        if (renang >= 1687 && renang <= 1707) return 33;
+        if (renang >= 1708 && renang <= 1728) return 34;
+        if (renang >= 1729 && renang <= 1749) return 35;
+        if (renang >= 1750 && renang <= 1771) return 36;
+        if (renang >= 1772 && renang <= 1792) return 37;
+        if (renang >= 1793 && renang <= 1813) return 38;
+        if (renang >= 1814 && renang <= 1835) return 39;
+        if (renang >= 1836 && renang <= 1856) return 40;
+        if (renang >= 1857 && renang <= 1877) return 41;
+        if (renang >= 1878 && renang <= 1898) return 42;
+        if (renang >= 1899 && renang <= 1919) return 43;
+        if (renang >= 1920 && renang <= 1940) return 44;
+        if (renang >= 1941 && renang <= 1961) return 45;
+        if (renang >= 1962 && renang <= 1983) return 46;
+        if (renang >= 1984 && renang <= 2004) return 47;
+        if (renang >= 2005 && renang <= 2025) return 48;
+        if (renang >= 2026 && renang <= 2047) return 49;
+        if (renang >= 2048 && renang <= 2068) return 50;
+        if (renang >= 2069 && renang <= 2110) return 51;
+        if (renang >= 2111 && renang <= 2131) return 53;
+        if (renang >= 2132 && renang <= 2152) return 54;
+        if (renang >= 2153 && renang <= 2173) return 55;
+        if (renang >= 2174 && renang <= 2194) return 56;
+        if (renang >= 2195 && renang <= 2215) return 57;
+        if (renang >= 2216 && renang <= 2236) return 58;
+        if (renang >= 2237 && renang <= 2258) return 59;
+        if (renang >= 2259 && renang <= 2279) return 60;
+        if (renang >= 2280 && renang <= 2300) return 61;
+        if (renang >= 2301 && renang <= 2321) return 62;
+        if (renang >= 2322 && renang <= 2342) return 63;
+        if (renang >= 2343 && renang <= 2363) return 64;
+        if (renang >= 2364 && renang <= 2385) return 65;
+        if (renang >= 2386 && renang <= 2406) return 66;
+        if (renang >= 2407 && renang <= 2427) return 67;
+        if (renang >= 2428 && renang <= 2448) return 68;
+        if (renang >= 2449 && renang <= 2469) return 69;
+        if (renang >= 2470 && renang <= 2490) return 70;
+        if (renang >= 2491 && renang <= 2512) return 71;
+        if (renang >= 2513 && renang <= 2533) return 72;
+        if (renang >= 2534 && renang <= 2554) return 73;
+        if (renang >= 2555 && renang <= 2575) return 74;
+        if (renang >= 2576 && renang <= 2596) return 75;
+        if (renang >= 2597 && renang <= 2617) return 76;
+        if (renang >= 2618 && renang <= 2638) return 77;
+        if (renang >= 2639 && renang <= 2660) return 78;
+        if (renang >= 2661 && renang <= 2681) return 79;
+        if (renang >= 2682 && renang <= 2702) return 80;
+        if (renang >= 2703 && renang <= 2724) return 81;
+        if (renang >= 2725 && renang <= 2745) return 82;
+        if (renang >= 2746 && renang <= 2766) return 83;
+        if (renang >= 2767 && renang <= 2787) return 84;
+        if (renang >= 2788 && renang <= 2808) return 85;
+        if (renang >= 2809 && renang <= 2829) return 86;
+        if (renang >= 2830 && renang <= 2850) return 87;
+        if (renang >= 2851 && renang <= 2871) return 88;
+        if (renang >= 2872 && renang <= 2892) return 89;
+        if (renang >= 2893 && renang <= 2913) return 90;
+        if (renang >= 2914 && renang <= 2935) return 91;
+        if (renang >= 2936 && renang <= 2956) return 92;
+        if (renang >= 2957 && renang <= 2977) return 93;
+        if (renang >= 2978 && renang <= 2998) return 94;
+        if (renang >= 2999 && renang <= 3020) return 95;
+        if (renang >= 3021 && renang <= 3040) return 96;
+        if (renang >= 3041 && renang <= 3061) return 97;
+        if (renang >= 3062 && renang <= 3083) return 98;
+        if (renang >= 3084 && renang <= 3104) return 99;
+        if (renang >= 3105 && renang <= 3401) return 100;
+        return 0;
+      }
+    };
+
+
+
+  // Fungsi handler ketika nilai input berubah
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: Number(value),
+    });
+
+    // Update nilai langsung saat mengetik
+    if (name === 'lari') {
+      setNilaiLari(hitungNilaiLari(Number(value), jenisKelamin));
+    } else if (name === 'pullUp') {
+      setNilaiPullUp(hitungNilaiPullUp(Number(value), jenisKelamin));
+    } else if (name === 'sitUp') {
+      setNilaiSitUp(hitungNilaiSitUp(Number(value), jenisKelamin));
+    } else if (name === 'pushUp') {
+      setNilaiPushUp(hitungNilaiPushUp(Number(value), jenisKelamin));
+    } else if (name === 'shuttleRun') {
+      setNilaiShuttleRun(hitungNilaiShuttleRun(Number(value), jenisKelamin));
+    } else if (name === 'renang') {
+      setNilaiRenang(hitungNilaiRenang(Number(value), jenisKelamin));
+    }
+  };
+
+  // Fungsi handler ketika dropdown jenis kelamin berubah
+  const handleGenderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setJenisKelamin(e.target.value);
+  };
+
+    // Fungsi untuk menghitung rata-rata
+    const hitungRataRata = (...nilai: (number | null)[]) => {
+      const validNilai = nilai.filter((n) => n !== null) as number[];
+      const total = validNilai.reduce((acc, curr) => acc + curr, 0);
+      return validNilai.length > 0 ? total / validNilai.length : 0;
+    };
+
+     // Fungsi ketika tombol 'Hitung' ditekan
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Hitung rata-rata semua nilai
+    const rataRata = hitungRataRata(
+      nilaiLari,
+      nilaiPullUp,
+      nilaiSitUp,
+      nilaiPushUp,
+      nilaiShuttleRun,
+      nilaiRenang
+    );
+    setNilaiRataRata(rataRata);
   };
 
   return (
@@ -87,128 +876,141 @@ const CalculatorFitness: React.FC = () => {
                     select
                     label="Jenis Kelamin"
                     name="gender"
-                    value={formValues.gender}
-                    onChange={handleChange}
+                    value={jenisKelamin}
+                    onChange={handleGenderChange}
                   >
                     {genders.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
                         {option.label}
                       </MenuItem>
                     ))}
+
+                    
                   </TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
+                    type="number"
                     label="Jarak Lari 12 menit (meter)"
-                    name="runDistance"
-                    value={formValues.runDistance}
-                    onChange={handleChange}
+                    name="lari"
+                    value={formData.lari}
+                    onChange={handleInputChange}
+                    // placeholder="Enter a number between 1349 and 1413"
+                    // value={formData.runDistance}
+                    // onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Nilai"
-                    name="runDistanceValue"
-                    value={formValues.runDistanceValue}
-                    onChange={handleChange}
-                    disabled
+                    // label="Nilai"
+                    name="lari"
+                    value={nilaiLari}
+                    // onChange={handleInputChange}
+                    // variant="outlined"
+                    // disabled
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
+                    type="number"
                     label="Pull UP (1 menit)"
-                    name="pullUps"
-                    value={formValues.pullUps}
-                    onChange={handleChange}
+                    name="pullUp"
+                    value={formData.pullUp}
+                    onChange={handleInputChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Nilai"
-                    name="pullUpsValue"
-                    value={formValues.pullUpsValue}
-                    onChange={handleChange}
-                    disabled
+                    // label="Nilai"
+                    name="pullUp"
+                    value={nilaiPullUp}
+                    // onChange={handleInputChange}
+                    // variant="outlined"
+                    // disabled
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
+                    type="number"
                     label="Sit UP (1 menit)"
-                    name="sitUps"
-                    value={formValues.sitUps}
-                    onChange={handleChange}
+                    name="sitUp"
+                    value={formData.sitUp}
+                    onChange={handleInputChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Nilai"
-                    name="sitUpsValue"
-                    value={formValues.sitUpsValue}
-                    onChange={handleChange}
-                    disabled
+                    // label="Nilai"
+                    name="sitUp"
+                    value={nilaiSitUp}
+                    // onChange={handleInputChange}
+                    // disabled
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
+                    type="number"
                     label="Push UP (1 menit)"
-                    name="pushUps"
-                    value={formValues.pushUps}
-                    onChange={handleChange}
+                    name="pushUp"
+                    value={formData.pushUp}
+                    onChange={handleInputChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Nilai"
-                    name="pushUpsValue"
-                    value={formValues.pushUpsValue}
-                    onChange={handleChange}
-                    disabled
+                    // label="Nilai"
+                    name="pushUp"
+                    value={nilaiPushUp}
+                    // onChange={handleInputChange}
+                    // disabled
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
+                    type="number"
                     label="Shuttle Run"
                     name="shuttleRun"
-                    value={formValues.shuttleRun}
-                    onChange={handleChange}
+                    value={formData.shuttleRun}
+                    onChange={handleInputChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Nilai"
-                    name="shuttleRunValue"
-                    value={formValues.shuttleRunValue}
-                    onChange={handleChange}
-                    disabled
+                    // label="Nilai"
+                    name="shuttleRun"
+                    value={nilaiShuttleRun}
+                    // onChange={handleInputChange}
+                    // disabled
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
+                    type="number"
                     label="Renang"
-                    name="swimming"
-                    value={formValues.swimming}
-                    onChange={handleChange}
+                    name="renang"
+                    value={formData.renang}
+                    onChange={handleInputChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
-                    label="Nilai"
-                    name="swimmingValue"
-                    value={formValues.swimmingValue}
-                    onChange={handleChange}
-                    disabled
+                    // label="Nilai"
+                    name="renang"
+                    value={nilaiRenang}
+                    // onChange={handleInputChange}
+                    // disabled
                   />
                 </Grid>
               </Grid>
@@ -220,6 +1022,8 @@ const CalculatorFitness: React.FC = () => {
               >
                 Hitung
               </Button>
+
+
             </Box>
           </Box>
         </Grid>

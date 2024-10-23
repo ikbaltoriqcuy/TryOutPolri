@@ -14,53 +14,42 @@ const Jumbotron = () => {
 
   return (
     <ThemeProvider theme={Theme}>
+    
+    <Container disableGutters>
       <Box
         sx={{
-          width: "100vw",
-          height: "100vh",
-          backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/bg_polri.jpeg")',
-          backgroundSize: "cover",
+          position: 'relative',
+          backgroundImage: 'url("/images/bg_polri.jpeg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+          textAlign: 'center',
         }}
       >
-        <Container
+        <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            height: "100vh",
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Slight overlay for readability
+            padding: '20px',
+            borderRadius: '10px',
+            maxWidth: '600px',
           }}
         >
-          <Grid
-            container
-            direction="column"
-            sx={{ color: "#f5cb42", marginTop: "64px", width: "450px" }}
-          >
-            <Typography variant="h3">
-              Program Bimbel Polri Untuk Akpol
-            </Typography>
-            <Typography variant="subtitle1" color={"#ffffff"} marginTop={"16px"}>
-              <b>Program Bimbel Polri</b> merupakan program utama dari Bimbel
-              Police Cource. Program persiapan tes seleksi ini dikhususkan untuk
-              taruna.
-            </Typography>
-            <Typography variant="body1"></Typography>
-
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<WhatsAppIcon />}
-              onClick={waClick}
-              sx={{
-                marginTop: "16px",
-                background: "#25D366"
-              }}
-            >
-              Chat on WhatsApp
-            </Button>
-          </Grid>
-        </Container>
+          <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+            With Police Course, Everything Is Easier
+          </Typography>
+          <Typography variant="body1" sx={{ marginTop: 2 }}>
+            Police Course merupakan bimbingan belajar untuk persiapan tes masuk menjadi anggota Polri yang sangat lengkap sesuai dengan standar tes sesungguhnya yang berkualitas untuk meningkatkan peluang lulus dan dapat diikuti oleh seluruh anak muda di Indonesia yang ingin mewujudkan mimpi menjadi Anggota Polri.
+          </Typography>
+          <Button variant="contained" color="primary" sx={{ marginTop: 3 }}>
+            Daftar Sekarang
+          </Button>
+        </Box>
       </Box>
+    </Container>    
     </ThemeProvider>
   );
 };
