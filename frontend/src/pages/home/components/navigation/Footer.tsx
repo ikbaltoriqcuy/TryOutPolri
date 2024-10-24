@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
             </Typography>
             <Box sx={{ marginTop: "16px" }}>
               <IconButton
-                href="https://instagram.com"
+                href="https://www.instagram.com/police.course/"
                 target="_blank"
                 sx={{ color: "#f8f8f8" , background: "#f5cb42", borderRadius: 1}}
               >
