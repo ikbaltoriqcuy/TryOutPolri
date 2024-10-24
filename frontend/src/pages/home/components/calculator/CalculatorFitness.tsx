@@ -655,113 +655,128 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
     // Fungsi untuk menghitung nilai Renang berdasarkan jenis kelamin
     const hitungNilaiRenang = (renang: number, jenisKelamin: string) => {
       if (jenisKelamin === 'pria') {
-        if (renang >= 14.00 && renang <= 14.49) return 100;
-        if (renang >= 14.50 && renang <= 14.99) return 99;
-        if (renang >= 15.00 && renang <= 15.49) return 98;
-        if (renang >= 15.50 && renang <= 15.99) return 97;
-        if (renang >= 16.00 && renang <= 16.39) return 96;
-        if (renang >= 16.40 && renang <= 16.79) return 95;
-        if (renang >= 16.80 && renang <= 17.19) return 94;
-        if (renang >= 17.20 && renang <= 17.59) return 93;
-        if (renang >= 17.60 && renang <= 17.99) return 92;
-        if (renang >= 18.00 && renang <= 18.39) return 91;
-        if (renang >= 18.40 && renang <= 18.79) return 90;
-        if (renang >= 18.80 && renang <= 19.19) return 89;
-        if (renang >= 19.20 && renang <= 19.59) return 88;
-        if (renang >= 19.60 && renang <= 19.99) return 87;
-        if (renang >= 20.00 && renang <= 20.49) return 86;
-        if (renang >= 20.50 && renang <= 20.99) return 85;
-        if (renang >= 21.00 && renang <= 21.49) return 84;
-        if (renang >= 21.50 && renang <= 21.99) return 83;
-        if (renang >= 22.00 && renang <= 22.49) return 82;
-        if (renang >= 22.50 && renang <= 22.99) return 81;
-        if (renang >= 23.00 && renang <= 23.49) return 80;
-        if (renang >= 23.50 && renang <= 23.99) return 79;
-        if (renang >= 24.00 && renang <= 24.49) return 78;
-        if (renang >= 24.50 && renang <= 24.99) return 77;
-        if (renang >= 25.00 && renang <= 25.49) return 76;
-        if (renang >= 25.50 && renang <= 25.99) return 75;
-        if (renang >= 26.00 && renang <= 26.49) return 74;
-        if (renang >= 26.50 && renang <= 26.99) return 73;
-        if (renang >= 27.00 && renang <= 27.49) return 72;
-        if (renang >= 27.50 && renang <= 27.99) return 71;
-        if (renang >= 28.00 && renang <= 28.49) return 70;
-        if (renang >= 28.50 && renang <= 28.99) return 69;
-        if (renang >= 29.00 && renang <= 29.49) return 68;
-        if (renang >= 29.50 && renang <= 29.99) return 67;
-        if (renang >= 30.00 && renang <= 30.49) return 66;
-        if (renang >= 30.50 && renang <= 30.99) return 65;
-        if (renang >= 31.00 && renang <= 31.49) return 64;
-        if (renang >= 31.50 && renang <= 31.99) return 63;
-        if (renang >= 32.00 && renang <= 32.49) return 62;
-        if (renang >= 32.50 && renang <= 32.99) return 61;
-        if (renang >= 33.00 && renang <= 33.49) return 60;
-        if (renang >= 33.50 && renang <= 33.99) return 59;
-        if (renang >= 34.00 && renang <= 34.29) return 58;
-        if (renang >= 34.30 && renang <= 34.69) return 57;
+        if (renang >= 14.00 && renang <= 14.69) return 100;
+        if (renang >= 14.70 && renang <= 15.39) return 99;
+        if (renang >= 15.40 && renang <= 16.9) return 98;
+        if (renang >= 16.10 && renang <= 16.79) return 97;
+        if (renang >= 16.80 && renang <= 17.49) return 96;
+        if (renang >= 17.50 && renang <= 18.19) return 95;
+        if (renang >= 18.20 && renang <= 18.89) return 94;
+        if (renang >= 18.90 && renang <= 19.59) return 93;
+        if (renang >= 19.60 && renang <= 20.29) return 92;
+        if (renang >= 20.30 && renang <= 20.99) return 91;
+        if (renang >= 21.00 && renang <= 21.69) return 90;
+        if (renang >= 21.70 && renang <= 22.39) return 89;
+        if (renang >= 22.40 && renang <= 23.09) return 88;
+        if (renang >= 23.10 && renang <= 23.79) return 87;
+        if (renang >= 23.80 && renang <= 24.49) return 86;
+        if (renang >= 24.50 && renang <= 25.19) return 85;
+        if (renang >= 25.20 && renang <= 25.89) return 84;
+        if (renang >= 25.90 && renang <= 26.59) return 83;
+        if (renang >= 26.60 && renang <= 27.29) return 82;
+        if (renang >= 27.30 && renang <= 27.99) return 81;
+        if (renang >= 28.00 && renang <= 28.69) return 80;
+        if (renang >= 28.70 && renang <= 29.39) return 79;
+        if (renang >= 29.40 && renang <= 30.09) return 78;
+        if (renang >= 30.10 && renang <= 30.79) return 77;
+        if (renang >= 30.80 && renang <= 31.49) return 76;
+        if (renang >= 31.50 && renang <= 32.19) return 75;
+        if (renang >= 32.20 && renang <= 32.89) return 74;
+        if (renang >= 22.90 && renang <= 33.59) return 73;
+        if (renang >= 33.60 && renang <= 34.29) return 72;
+        if (renang >= 34.30 && renang <= 34.99) return 71;
+        if (renang >= 35.00 && renang <= 35.69) return 70;
+        if (renang >= 35.70 && renang <= 36.39) return 69;
+        if (renang >= 36.40 && renang <= 37.09) return 68;
+        if (renang >= 37.10 && renang <= 37.79) return 67;
+        if (renang >= 37.80 && renang <= 38.49) return 66;
+        if (renang >= 38.50 && renang <= 39.19) return 65;
+        if (renang >= 39.20 && renang <= 39.89) return 64;
+        if (renang >= 39.90 && renang <= 40.59) return 63;
+        if (renang >= 40.60 && renang <= 41.29) return 62;
+        if (renang >= 41.30 && renang <= 41.99) return 61;
+        if (renang >= 42.00 && renang <= 42.69) return 60;
+        if (renang >= 42.70 && renang <= 43.39) return 59;
+        if (renang >= 43.40 && renang <= 44.9) return 58;
+        if (renang >= 44.10 && renang <= 44.79) return 57;
+        if (renang >= 44.80 && renang <= 45.49) return 56;
+        if (renang >= 45.50 && renang <= 46.19) return 55;
+        if (renang >= 46.20 && renang <= 46.89) return 54;
+        if (renang >= 46.90 && renang <= 47.59) return 53;
+        if (renang >= 47.60 && renang <= 48.29) return 52;
+        if (renang >= 48.30 && renang <= 48.99) return 51;
+        if (renang >= 49.00 && renang <= 49.69) return 50;
+        if (renang >= 49.70 && renang <= 50.39) return 49;
+        if (renang >= 50.40 && renang <= 51.9) return 48;
+        if (renang >= 51.10 && renang <= 51.79) return 47;
+        if (renang >= 51.80 && renang <= 52.49) return 46;
+        if (renang >= 52.50 && renang <= 53.19) return 45;
+        if (renang >= 53.20 && renang <= 53.89) return 44;
+        if (renang >= 53.90 && renang <= 54.59) return 43;
+        if (renang >= 54.60 && renang <= 54.99) return 42;
+        if (renang >= 55.00) return 41;
         return 0;
       } else {
         if (renang >= 20.00 && renang <= 20.69) return 100; // Contoh untuk renang wanita
         if (renang >= 20.70 && renang <= 21.29) return 99;
         if (renang >= 21.30 && renang <= 21.99) return 98;
-        if (renang >= 22.00 && renang <= 22.59) return 97;
-        if (renang >= 22.60 && renang <= 23.29) return 96;
-        if (renang >= 23.30 && renang <= 23.99) return 95;
+        if (renang >= 22.00 && renang <= 22.69) return 97;
+        if (renang >= 22.70 && renang <= 23.39) return 96;
+        if (renang >= 23.40 && renang <= 23.99) return 95;
         if (renang >= 24.00 && renang <= 24.69) return 94;
         if (renang >= 24.70 && renang <= 25.39) return 93;
         if (renang >= 25.40 && renang <= 25.99) return 92;
         if (renang >= 26.00 && renang <= 26.69) return 91;
         if (renang >= 26.70 && renang <= 27.39) return 90;
-        if (renang >= 27.40 && renang <= 27.99) return 89;
+        if (renang >= 27.40 && renang <= 27.99) return 89; 
         if (renang >= 28.00 && renang <= 28.69) return 88;
         if (renang >= 28.70 && renang <= 29.39) return 87;
         if (renang >= 29.40 && renang <= 30.09) return 86;
-        if (renang >= 30.10 && renang <= 30.79) return 85;
-        if (renang >= 30.80 && renang <= 31.39) return 84;
+        if (renang >= 30.10 && renang <= 30.69) return 85;
+        if (renang >= 30.70 && renang <= 31.39) return 84;
         if (renang >= 31.40 && renang <= 32.09) return 83;
         if (renang >= 32.10 && renang <= 32.69) return 82;
         if (renang >= 32.70 && renang <= 33.39) return 81;
         if (renang >= 33.40 && renang <= 34.09) return 80;
-        if (renang >= 34.10 && renang <= 34.79) return 79;
-        if (renang >= 34.80 && renang <= 35.49) return 78;
-        if (renang >= 35.50 && renang <= 36.09) return 77;
+        if (renang >= 34.10 && renang <= 34.69) return 79;
+        if (renang >= 34.70 && renang <= 35.39) return 78;
+        if (renang >= 35.40 && renang <= 36.09) return 77;
         if (renang >= 36.10 && renang <= 36.79) return 76;
-        if (renang >= 36.80 && renang <= 37.49) return 75;
-        if (renang >= 37.50 && renang <= 38.19) return 74;
-        if (renang >= 38.20 && renang <= 38.79) return 73;
-        if (renang >= 38.80 && renang <= 39.49) return 72;
-        if (renang >= 39.50 && renang <= 40.09) return 71;
+        if (renang >= 36.80 && renang <= 37.39) return 75;
+        if (renang >= 37.40 && renang <= 38.09) return 74;
+        if (renang >= 38.10 && renang <= 38.79) return 73;
+        if (renang >= 38.80 && renang <= 39.39) return 72;
+        if (renang >= 39.40 && renang <= 40.09) return 71;
         if (renang >= 40.10 && renang <= 40.79) return 70;
-        if (renang >= 40.80 && renang <= 41.49) return 69;
-        if (renang >= 41.50 && renang <= 42.19) return 68;
-        if (renang >= 42.20 && renang <= 42.79) return 67;
+        if (renang >= 40.80 && renang <= 41.39) return 69;
+        if (renang >= 41.40 && renang <= 42.09) return 68;
+        if (renang >= 42.10 && renang <= 42.79) return 67;
         if (renang >= 42.80 && renang <= 43.49) return 66;
-        if (renang >= 43.50 && renang <= 44.19) return 65;
-        if (renang >= 44.20 && renang <= 44.89) return 64;
-        if (renang >= 44.90 && renang <= 45.49) return 63;
-        if (renang >= 45.50 && renang <= 46.19) return 62;
-        if (renang >= 46.20 && renang <= 46.89) return 61;
-        if (renang >= 46.90 && renang <= 47.59) return 60;
-        if (renang >= 47.60 && renang <= 48.19) return 59;
-        if (renang >= 48.20 && renang <= 48.89) return 58;
-        if (renang >= 48.90 && renang <= 49.59) return 57;
-        if (renang >= 49.60 && renang <= 50.19) return 56;
-        if (renang >= 50.20 && renang <= 50.89) return 55;
-        if (renang >= 50.90 && renang <= 51.59) return 54;
-        if (renang >= 51.60 && renang <= 52.19) return 53;
-        if (renang >= 52.20 && renang <= 52.89) return 52;
-        if (renang >= 52.90 && renang <= 53.59) return 51;
-        if (renang >= 53.60 && renang <= 54.29) return 50;
-        if (renang >= 54.30 && renang <= 54.99) return 49;
-        if (renang >= 55.00 && renang <= 55.59) return 48;
-        if (renang >= 55.60 && renang <= 56.29) return 47;
-        if (renang >= 56.30 && renang <= 56.99) return 46;
-        if (renang >= 57.00 && renang <= 57.69) return 45;
-        if (renang >= 57.70 && renang <= 58.29) return 44;
-        if (renang >= 58.30 && renang <= 58.99) return 43;
-        if (renang >= 59.00 && renang <= 59.69) return 42;
-        if (renang >= 59.70 && renang <= 59.99) return 41;
-        if (renang >= 60.00) return 40;
+        if (renang >= 43.50 && renang <= 44.09) return 65;
+        if (renang >= 44.10 && renang <= 44.79) return 64;
+        if (renang >= 44.80 && renang <= 45.49) return 63;
+        if (renang >= 45.50 && renang <= 46.09) return 62;
+        if (renang >= 46.10 && renang <= 46.79) return 61;
+        if (renang >= 46.80 && renang <= 47.49) return 60;
+        if (renang >= 47.50 && renang <= 48.09) return 59;
+        if (renang >= 48.10 && renang <= 48.79) return 58;
+        if (renang >= 48.80 && renang <= 49.49) return 57;
+        if (renang >= 49.50 && renang <= 50.19) return 56;
+        if (renang >= 50.20 && renang <= 50.79) return 55;
+        if (renang >= 50.80 && renang <= 51.49) return 54;
+        if (renang >= 51.50 && renang <= 52.19) return 53;
+        if (renang >= 52.20 && renang <= 52.79) return 52;
+        if (renang >= 52.80 && renang <= 53.49) return 51;
+        if (renang >= 53.50 && renang <= 54.19) return 50;
+        if (renang >= 54.20 && renang <= 54.79) return 49;
+        if (renang >= 54.80 && renang <= 55.49) return 48;
+        if (renang >= 55.50 && renang <= 56.19) return 47;
+        if (renang >= 56.20 && renang <= 56.89) return 46;
+        if (renang >= 56.90 && renang <= 57.49) return 45;
+        if (renang >= 57.50 && renang <= 58.19) return 44;
+        if (renang >= 58.20 && renang <= 58.89) return 43;
+        if (renang >= 58.90 && renang <= 59.99) return 42;
+        if (renang >= 60.70) return 41;
         return 0;
       }
     };
@@ -970,7 +985,7 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
                   <TextField
                     fullWidth
                     type="number"
-                    label="Shuttle Run"
+                    label="Shuttle Run (Detik)"
                     name="shuttleRun"
                     value={formData.shuttleRun}
                     onChange={handleInputChange}
@@ -990,7 +1005,7 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
                   <TextField
                     fullWidth
                     type="number"
-                    label="Renang"
+                    label="Renang (Detik)"
                     name="renang"
                     value={formData.renang}
                     onChange={handleInputChange}
