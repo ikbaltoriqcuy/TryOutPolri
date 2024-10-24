@@ -1,7 +1,49 @@
 import { ThemeProvider } from "@emotion/react";
 import { Box, Container, Typography, Grid, Button } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Theme from "../../../../theme/Theme";
+import bannerBg from '/images/banner-bg.png';
+import logo from '/images/logo.png';
+
+
+const useStyles = makeStyles((theme) => ({
+  banner: {
+    position: 'relative',
+    backgroundImage: `url(${bannerBg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+    color: '#fff',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: '200px',
+    height: 'auto',
+    marginBottom: '20px',
+  },
+  title: {
+    fontSize: '3rem',
+    fontWeight: 'bold',
+  },
+  subtitle: {
+    fontSize: '1.5rem',
+    marginTop: '10px',
+  },
+  button: {
+    marginTop: '30px',
+    padding: '10px 20px',
+    backgroundColor: '#ffc107',
+    color: '#000',
+    '&:hover': {
+      backgroundColor: '#ffca28',
+    },
+  },
+}));
 
 const Jumbotron = () => {
   const phoneNumber = "1234567890";
@@ -10,48 +52,24 @@ const Jumbotron = () => {
     message
   )}`;
 
-  const waClick = () => {};
+  const classes = useStyles();
 
   return (
-    <ThemeProvider theme={Theme}>
-    
-    <Container disableGutters>
-      <Box
-        sx={{
-          position: 'relative',
-          backgroundImage: 'url("/images/bg_polri.jpeg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          textAlign: 'center',
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Slight overlay for readability
-            padding: '20px',
-            borderRadius: '10px',
-            maxWidth: '600px',
-          }}
-        >
-          <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
-            With Police Course, Everything Is Easier
-          </Typography>
-          <Typography variant="body1" sx={{ marginTop: 2 }}>
-            Police Course merupakan bimbingan belajar untuk persiapan tes masuk menjadi anggota Polri yang sangat lengkap sesuai dengan standar tes sesungguhnya yang berkualitas untuk meningkatkan peluang lulus dan dapat diikuti oleh seluruh anak muda di Indonesia yang ingin mewujudkan mimpi menjadi Anggota Polri.
-          </Typography>
-          <Button variant="contained" color="primary" sx={{ marginTop: 3 }}>
-            Daftar Sekarang
-          </Button>
-        </Box>
-      </Box>
-    </Container>    
-    </ThemeProvider>
+    <Box className={classes.banner}>
+      <img src={logo} alt="Logo" className={classes.logo} />
+      <Typography className={classes.title}>
+        With Police Course, Everything Is Easier
+      </Typography>
+      <Typography className={classes.subtitle}>
+        Police Course merupakan bimbingan belajar untuk persiapan tes masuk anggota polri yang lengkap.
+      </Typography>
+      <Button variant="contained" className={classes.button}>
+        Daftar Sekarang
+      </Button>
+    </Box>
   );
+
 };
 
 export default Jumbotron;
+
