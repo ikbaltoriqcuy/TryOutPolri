@@ -1031,7 +1031,12 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
               >
                 Hitung
               </Button>
-
+              {/* Tampilkan rata-rata setelah submit */}
+              {nilaiRataRata !== null && (
+                <div>
+                  <h3>Rata-rata Nilai: {nilaiRataRata}</h3>
+                </div>
+              )}
 
             </Box>
           </Box>
