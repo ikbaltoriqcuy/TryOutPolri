@@ -149,34 +149,35 @@ const CalculatorFitness: React.FC = () => {
       return 0;
     } else {
       if (jarak >= 1013 && jarak <= 1033) return 1; // Contoh nilai untuk wanita
-      if (jarak >= 1034 && jarak <= 1055) return 2;
-      if (jarak >= 1056 && jarak <= 1075) return 3;
+      if (jarak >= 1034 && jarak <= 1045) return 2;
+      if (jarak >= 1055 && jarak <= 1075) return 3;
       if (jarak >= 1076 && jarak <= 1096) return 4;
       if (jarak >= 1097 && jarak <= 1117) return 5;
       if (jarak >= 1118 && jarak <= 1138) return 6;
-      if (jarak >= 1139 && jarak <= 1160) return 7;
-      if (jarak >= 1161 && jarak <= 1180) return 8;
+      if (jarak >= 1139 && jarak <= 1159) return 7;
+      if (jarak >= 1160 && jarak <= 1180) return 8;
       if (jarak >= 1181 && jarak <= 1201) return 9;
       if (jarak >= 1202 && jarak <= 1222) return 10;
       if (jarak >= 1223 && jarak <= 1243) return 11;
-      if (jarak >= 1244 && jarak <= 1265) return 12;
-      if (jarak >= 1266 && jarak <= 1286) return 13;
-      if (jarak >= 1287 && jarak <= 1307) return 14;
-      if (jarak >= 1308 && jarak <= 1330) return 15;
-      if (jarak >= 1331 && jarak <= 1351) return 16;
-      if (jarak >= 1352 && jarak <= 1370) return 17;
-      if (jarak >= 1371 && jarak <= 1391) return 18;
-      if (jarak >= 1392 && jarak <= 1411) return 19;
+      if (jarak >= 1244 && jarak <= 1264) return 12;
+      if (jarak >= 1265 && jarak <= 1285) return 13;
+      if (jarak >= 1286 && jarak <= 1306) return 14;
+      if (jarak >= 1307 && jarak <= 1327) return 15;
+      if (jarak >= 1328 && jarak <= 1358) return 16;
+      if (jarak >= 1349 && jarak <= 1369) return 17;
+      if (jarak >= 1370 && jarak <= 1390) return 18;
+      if (jarak >= 1391 && jarak <= 1411) return 19;
       if (jarak >= 1412 && jarak <= 1433) return 20;
       if (jarak >= 1434 && jarak <= 1454) return 21;
       if (jarak >= 1455 && jarak <= 1475) return 22;
       if (jarak >= 1476 && jarak <= 1496) return 23;
       if (jarak >= 1497 && jarak <= 1517) return 24;
       if (jarak >= 1518 && jarak <= 1538) return 25;
-      if (jarak >= 1539 && jarak <= 1581) return 26;
+      if (jarak >= 1539 && jarak <= 1560) return 26;
+      if (jarak >= 1561 && jarak <= 1581) return 27;
       if (jarak >= 1582 && jarak <= 1602) return 28;
-      if (jarak >= 1603 && jarak <= 1624) return 29;
-      if (jarak >= 1625 && jarak <= 1644) return 30;
+      if (jarak >= 1603 && jarak <= 1623) return 29;
+      if (jarak >= 1624 && jarak <= 1644) return 30;
       if (jarak >= 1645 && jarak <= 1665) return 31;
       if (jarak >= 1666 && jarak <= 1686) return 32;
       if (jarak >= 1687 && jarak <= 1707) return 33;
@@ -210,8 +211,8 @@ const CalculatorFitness: React.FC = () => {
       if (jarak >= 2301 && jarak <= 2321) return 62;
       if (jarak >= 2322 && jarak <= 2342) return 63;
       if (jarak >= 2343 && jarak <= 2363) return 64;
-      if (jarak >= 2364 && jarak <= 2385) return 65;
-      if (jarak >= 2386 && jarak <= 2406) return 66;
+      if (jarak >= 2364 && jarak <= 2384) return 65;
+      if (jarak >= 2385 && jarak <= 2406) return 66;
       if (jarak >= 2407 && jarak <= 2427) return 67;
       if (jarak >= 2428 && jarak <= 2448) return 68;
       if (jarak >= 2449 && jarak <= 2469) return 69;
@@ -240,12 +241,12 @@ const CalculatorFitness: React.FC = () => {
       if (jarak >= 2936 && jarak <= 2956) return 92;
       if (jarak >= 2957 && jarak <= 2977) return 93;
       if (jarak >= 2978 && jarak <= 2998) return 94;
-      if (jarak >= 2999 && jarak <= 3020) return 95;
-      if (jarak >= 3021 && jarak <= 3040) return 96;
+      if (jarak >= 2999 && jarak <= 3019) return 95;
+      if (jarak >= 3020 && jarak <= 3040) return 96;
       if (jarak >= 3041 && jarak <= 3061) return 97;
       if (jarak >= 3062 && jarak <= 3083) return 98;
-      if (jarak >= 3084 && jarak <= 3104) return 99;
-      if (jarak >= 3105 && jarak <= 3401) return 100;
+      if (jarak >= 3084 && jarak <= 3094) return 99;
+      if (jarak >= 3095) return 100;
       return 0;
     }
   };
@@ -776,7 +777,7 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
         if (renang >= 57.50 && renang <= 58.19) return 44;
         if (renang >= 58.20 && renang <= 58.89) return 43;
         if (renang >= 58.90 && renang <= 59.99) return 42;
-        if (renang >= 60.70) return 41;
+        if (renang >= 60.00) return 41;
         return 0;
       }
     };
