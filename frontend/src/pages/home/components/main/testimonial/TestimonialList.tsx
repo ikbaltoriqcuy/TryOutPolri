@@ -49,18 +49,6 @@ const TestimonialList: React.FC = () => {
         paddingY: "16px",
       }}
     >
-
-<Box sx={{ marginTop: 4, padding: '40px 0', bgcolor: '#333', color: 'white' }}>
-        <Typography variant="h4" align="center">
-          Kata Alumni
-        </Typography>
-        <Typography variant="body1" align="center" sx={{ marginTop: 2 }}>
-          "Dibimbing dengan baik oleh tutor dan coach, membantu menggapai mimpi."
-        </Typography>
-        <Typography align="center" sx={{ marginTop: 1 }}>
-          - Audhira Putri Purnomo, Taruna SIPSS T.A. 2023
-        </Typography>
-      </Box>
       <Typography variant="h4" component="h2" gutterBottom align="center">
         Testimoni
       </Typography>
