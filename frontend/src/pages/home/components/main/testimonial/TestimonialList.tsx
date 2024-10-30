@@ -14,7 +14,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         name: "Audhira Putri Purnomo",
-        role: "Taruna SIPSS T.A. 2023",
+        role: "Bintara Polri T.A. 2023",
         message: "“Dibimbing dengan baik di Police Course. Tutor dan Coachnya perhatian dan gak perhitungan waktu. Terima kasih Tactical Jaya selalu.”",
         avatarUrl: "/images/adhitama.jpeg",
     },
@@ -45,7 +45,7 @@ const TestimonialList: React.FC = () => {
     };
 
     return (
-        <Container sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
+        <Container sx={{ display: 'flex', justifyContent: 'center', mt: 5, marginTop: "120px", marginBottom: "120px", }}>
             <Grid
                 container
                 sx={{
