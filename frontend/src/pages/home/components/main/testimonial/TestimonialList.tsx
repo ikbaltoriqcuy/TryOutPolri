@@ -50,7 +50,7 @@ const TestimonialList: React.FC = () => {
                 container
                 sx={{
                     bgcolor: '#f1db25',
-                    borderRadius: 2,
+                    borderRadius: 3,
                     overflow: 'hidden',
                     width: '100%',
                     maxWidth: 1200,

@@ -51,7 +51,7 @@ const Navigation = (props: { currPage: number }) => {
             <img
               src={logo} // Logo
               alt="Logo"
-              style={{ width: "40px", height: "40px", marginRight: "10px" }}
+              style={{ width: "50px", height: "auto", marginRight: "10px" }}
             />
             <Typography variant="h6" color={"white"}>
               PoliceCourse
