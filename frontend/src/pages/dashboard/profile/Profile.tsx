@@ -42,7 +42,7 @@ const Profile: React.FC = () => {
         <AddressInfo cache={cache}/>
         <Button
           variant="contained"
-          sx={{ marginTop: 2, backgroundColor: "#ffca28", boxShadow: "none" }}
+          sx={{ marginTop: 2, backgroundColor: "#f1db25", boxShadow: "none" }}
           onClick={gotoEditProfile}
         > 
           Ubah Profil
@@ -51,7 +51,7 @@ const Profile: React.FC = () => {
           variant="contained"
           sx={{
             marginTop: 2,
-            backgroundColor: "#ffca28",
+            backgroundColor: "#f1db25",
             marginLeft: 2,
             boxShadow: "none",
           }}
@@ -247,7 +247,7 @@ const Packet = () => {
 
             <Button
               variant="contained"
-              sx={{ marginTop: 2, backgroundColor: "#ffca28" }}
+              sx={{ marginTop: 2, backgroundColor: "#f1db25" }}
             >
               Ganti Paket
             </Button>

@@ -5,6 +5,8 @@ import TesKecermatan from './pages/home/TesKecermatan';
 import Main from './pages/home/Main'
 import { MainRoutes } from './pages/home/MainRoutes'
 import { DashboardRoutes } from "./pages/dashboard/DashboardRoutes";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (

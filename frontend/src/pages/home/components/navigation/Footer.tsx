@@ -21,11 +21,10 @@ const Footer: React.FC = () => {
               gutterBottom
               sx={{ fontWeight: "bold" }}
             >
-              Get in Touch
+              Kunjungi Media Sosial Kami
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              Ecosystem bootstrapping learning curve lean startup disruptive.
-              Marketing long tail disruptive agile development partner.
+            Komplek GBI Jalan alam Asri Blok i-11. RT / RW : 5 / 10. Kelurahan : Buahbatu. Kecamatan : Kec. Bojongsoang. Kabupaten Bandung, Jawa Barat, Indonesia
             </Typography>
             <Box sx={{ marginTop: "16px" }}>
               <IconButton

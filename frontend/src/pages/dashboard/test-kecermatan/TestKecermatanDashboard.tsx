@@ -88,7 +88,7 @@ const TestKecermatanDashboard: React.FC = () => {
       <Box sx={{ display: "flex", justifyContent: "flex-end", p: 2 }}>
         <Button
           variant="contained"
-          sx={{ backgroundColor: "#ffca28", boxShadow: "none" }}
+          sx={{ backgroundColor: "#f1db25", boxShadow: "none" }}
         >
           Buat Soal
         </Button>

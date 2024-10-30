@@ -69,7 +69,7 @@ const TestKecermatanAdd: React.FC = () => {
           <Button variant="outlined" sx={{ mr: 2 }}>
             Gunakan Soal Sebelumnya?
           </Button>
-          <Button variant="contained" sx={{ backgroundColor: "#ffca28" }}>
+          <Button variant="contained" sx={{ backgroundColor: "#f1db25" }}>
             Mulai Tes
           </Button>
         </Box>

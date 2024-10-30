@@ -51,7 +51,7 @@ const Navigation = (props: { currPage: number }) => {
             <img
               src={logo} // Logo
               alt="Logo"
-              style={{ width: "40px", height: "40px", marginRight: "10px" }}
+              style={{ width: "50px", height: "auto", marginRight: "10px" }}
             />
             <Typography variant="h6" color={"white"}>
               PoliceCourse
@@ -136,7 +136,7 @@ const LabelLink = (props: {
       <Box
         sx={{
           ...(props.currentPage === props.index && {
-            backgroundColor: "#ffca28",
+            backgroundColor: "rgba(255, 255, 255, 0.10)",
             borderRadius: "10px",
             paddingX: "5px",
             marginX: "5px",
