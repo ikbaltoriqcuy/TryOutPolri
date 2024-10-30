@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#ffc107',
     color: '#000',
     '&:hover': {
-      backgroundColor: '#ffca28',
+      backgroundColor: 'rgba(255, 255, 255, 0.10)',
     },
   },
 }));

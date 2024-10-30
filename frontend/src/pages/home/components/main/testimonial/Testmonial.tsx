@@ -1,57 +1,82 @@
 import React from "react";
-import { makeStyles} from '@mui/styles';
-import { Card, CardContent, Typography, Avatar, Grid, Box } from '@mui/material';
+import Slider from "react-slick";
+import { Box, Container, Typography, Avatar, styled } from "@mui/material";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-interface TestimonialProps {
-    name: string;
-    title: string;
-    message: string;
-    avatarUrl: string;
+interface Testimonial {
+  name: string;
+  role: string;
+  message: string;
+  avatarUrl: string;
 }
 
-const useStyles = makeStyles( () => ({
-    card: {
-        maxWidth: 345,
-        margin: "16px",
-    },
-    avatar: {
-        width: "16px",
-        height: "16px",
-        marginBottom: "16px",
-    },
-    name: {
-        fontWeight: 'bold',
-    },
-    title: {
-        color: "#f5cb42",
-    },
-    message: {
-        marginTop: "8px",
-        textAlign: "center"
-    },
-}));
+const testimonials: Testimonial[] = [
+  {
+    name: "Audhira Putri Purnomo",
+    role: "Taruna SIPSS T.A. 2023",
+    message: "“Dibimbing dengan baik di Police Course. Tutor dan Coachnya perhatian dan gak perhitungan waktu. Terima kasih Tactical Jaya selalu.”",
+    avatarUrl: "/images/adhitama.jpeg",
+  },
+  {
+    name: "John Doe",
+    role: "Software Engineer",
+    message: "“Great learning experience, highly recommend the platform!”",
+    avatarUrl: "https://via.placeholder.com/150",
+  },
+];
 
- 
-const Testimonial : React.FC<TestimonialProps> = ({ name, message, avatarUrl }) => {
-    const classes = useStyles();
-    
-    return (
-        <Card className={classes.card}>
-            <CardContent sx={{ boxShadow: "none" }}>
-                <Grid container direction="column" alignItems="center">
-                    <Box>
-                        <Avatar alt={name} src={avatarUrl} className={classes.avatar} />
-                    </Box>
-                    <Typography variant="h6" className={classes.name}>
-                        {name}
-                    </Typography>
-                    <Typography variant="subtitle1" className={classes.message}>
-                        {message}
-                    </Typography>
-                </Grid>
-            </CardContent>
-        </Card>
-    );
-}
+const TestimonialList = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
-export default Testimonial;
+  return (
+    <Container
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        mt: 5,
+      }}
+    >
+      <Box
+        sx={{
+          width: "100%",
+          maxWidth: 800,
+          boxShadow: 3,
+          p: 3,
+          borderRadius: 2,
+          bgcolor: "background.paper",
+        }}
+      >
+        <Slider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <Box key={index} sx={{ p: 3, textAlign: "center" }}>
+              <Avatar
+                src={testimonial.avatarUrl}
+                alt={testimonial.name}
+                sx={{ width: 56, height: 56, mx: "auto", mb: 2 }}
+              />
+              <Typography variant="h6" sx={{ fontStyle: "italic", mb: 2 }}>
+                {testimonial.message}
+              </Typography>
+              <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                {testimonial.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {testimonial.role}
+              </Typography>
+            </Box>
+          ))}
+        </Slider>
+      </Box>
+    </Container>
+  );
+};
+
+export default TestimonialList;

@@ -1,88 +1,98 @@
-// src/TestimonialList.tsx
-import React from "react";
-import { Grid, Container, Typography, Box } from "@mui/material";
-import Testimonial from "./Testmonial";
+import React from 'react';
+import Slider from 'react-slick';
+import { Box, Typography, Avatar, Container, Grid, styled } from '@mui/material';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-interface TestimonialData {
-  name: string;
-  message: string;
-  avatarUrl: string;
+interface Testimonial {
+    name: string;
+    role: string;
+    message: string;
+    avatarUrl: string;
 }
 
-const testimonials: TestimonialData[] = [
-  {
-    name: "John Doe",
-    message: "This is a great product! I highly recommend it.",
-    avatarUrl: "https://cdn0-production-images-kly.akamaized.net/0Ba7VKYlZbIvRHZ9fDYasaw7Sck=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4119862/original/065226400_1660189533-i_m_Groot.jpg",
-  },
-  {
-    name: "Jane Smith",
-    message: "Amazing service and support. Would use again.",
-    avatarUrl: "https://cdn0-production-images-kly.akamaized.net/0Ba7VKYlZbIvRHZ9fDYasaw7Sck=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4119862/original/065226400_1660189533-i_m_Groot.jpg",
-  },
-  {
-    name: "John Doe",
-    message: "This is a great product! I highly recommend it.",
-    avatarUrl: "https://cdn0-production-images-kly.akamaized.net/0Ba7VKYlZbIvRHZ9fDYasaw7Sck=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4119862/original/065226400_1660189533-i_m_Groot.jpg",
-  },
-  {
-    name: "Jane Smith",
-    message: "Amazing service and support. Would use again.",
-    avatarUrl: "https://cdn0-production-images-kly.akamaized.net/0Ba7VKYlZbIvRHZ9fDYasaw7Sck=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4119862/original/065226400_1660189533-i_m_Groot.jpg",
-  },
-  {
-    name: "John Doe",
-    message: "This is a great product! I highly recommend it.",
-    avatarUrl: "https://cdn0-production-images-kly.akamaized.net/0Ba7VKYlZbIvRHZ9fDYasaw7Sck=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4119862/original/065226400_1660189533-i_m_Groot.jpg",
-  },
-  {
-    name: "Jane Smith",
-    message: "Amazing service and support. Would use again.",
-    avatarUrl: "https://cdn0-production-images-kly.akamaized.net/0Ba7VKYlZbIvRHZ9fDYasaw7Sck=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4119862/original/065226400_1660189533-i_m_Groot.jpg",
-  }
+const testimonials: Testimonial[] = [
+    {
+        name: "Audhira Putri Purnomo",
+        role: "Taruna SIPSS T.A. 2023",
+        message: "“Dibimbing dengan baik di Police Course. Tutor dan Coachnya perhatian dan gak perhitungan waktu. Terima kasih Tactical Jaya selalu.”",
+        avatarUrl: "/images/adhitama.jpeg",
+    },
+    // {
+    //     name: "John Doe",
+    //     role: "Software Engineer",
+    //     message: "“Great learning experience, highly recommend the platform!”",
+    //     avatarUrl: "https://via.placeholder.com/150",
+    // },
 ];
 
+const StyledSliderBox = styled(Box)({
+    '.slick-slide': {
+        display: 'flex !important',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
 const TestimonialList: React.FC = () => {
-  return (
-    <Container
-      sx={{
-        paddingY: "16px",
-      }}
-    >
-      <Typography variant="h4" component="h2" gutterBottom align="center">
-        Testimoni
-      </Typography>
-      <Container
-        sx={{
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingRight: "32px",
-        }}
-      >
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          sx={{ textAlign: "center", width: "400px", paddingRight: "64px" }}
-        >
-          sub title1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Quos blanditiis tenetur
-        </Typography>
-      </Container>
-      <Grid container spacing={4} justifyContent="center">
-        {testimonials.map((testimonial, index) => (
-          <Grid item key={index}>
-            <Testimonial
-              name={testimonial.name}
-              message={testimonial.message}
-              avatarUrl={testimonial.avatarUrl}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
-  );
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+    };
+
+    return (
+        <Container sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
+            <Grid
+                container
+                sx={{
+                    bgcolor: '#f1db25',
+                    borderRadius: 2,
+                    overflow: 'hidden',
+                    width: '100%',
+                    maxWidth: 1200,
+                    boxShadow: 3,
+                }}
+            >
+                {/* Slider Section */}
+                <Grid item xs={12} md={8} sx={{ bgcolor: 'grey.900', color: 'white', p: 4 }}>
+                    <StyledSliderBox sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '200px' }}>
+                        <Slider {...settings}>
+                            {testimonials.map((testimonial) => (
+                                <Box key={testimonial.name} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                                    <Typography variant="h6" sx={{ fontStyle: 'italic', mb: 2 }}>
+                                        {testimonial.message}
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 3 }}>
+                                        <Avatar src={testimonial.avatarUrl} alt={testimonial.name} sx={{ width: 56, height: 56, mr: 2 }} />
+                                        <Box>
+                                            <Typography variant="body1">{testimonial.name}</Typography>
+                                            <Typography variant="body2">
+                                                {testimonial.role}
+                                            </Typography>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            ))}
+                        </Slider>
+                    </StyledSliderBox>
+                </Grid>
+
+                {/* Static Title Section */}
+                <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'center', p: 4 }}>
+                    <Typography variant="overline" color="text.secondary">
+                        TESTIMONIALS
+                    </Typography>
+                    <Typography variant="h4" sx={{ fontWeight: 'bold', mt: 1 }}>
+                        Kata Alumni
+                    </Typography>
+                </Grid>
+            </Grid>
+        </Container>
+    );
 };
 
 export default TestimonialList;

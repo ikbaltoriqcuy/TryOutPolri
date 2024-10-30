@@ -136,7 +136,7 @@ const LabelLink = (props: {
       <Box
         sx={{
           ...(props.currentPage === props.index && {
-            backgroundColor: "#ffca28",
+            backgroundColor: "rgba(255, 255, 255, 0.10)",
             borderRadius: "10px",
             paddingX: "5px",
             marginX: "5px",
