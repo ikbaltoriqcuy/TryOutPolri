@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const useRegisterForm = () => {
   const [formValues, setFormValues] = useState({
+    user_id: -1,
     fullName: "",
     province: "",
     city: "",
@@ -39,6 +40,7 @@ const useRegisterForm = () => {
 
 
     const userData: UserData = {
+      user_id: formValues.user_id,
       name: formValues.fullName,
       place_birth: "",
       date_birth: "",
@@ -50,7 +52,10 @@ const useRegisterForm = () => {
       email: formValues.email,
       packet_id: -1,
       phone: formValues.whatsapp,
-      username: formValues.username
+      username: formValues.username,
+      price: -1,
+      current_quota: -1,
+      date_purchase: ""
     };
 
     let errors: string[] = [];

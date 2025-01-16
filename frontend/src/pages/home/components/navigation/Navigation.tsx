@@ -14,26 +14,40 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
-import logo from '/images/logo.png'; // Ganti dengan path logo-mu
+import logo from "/images/logo.png";
 
 const Navigation = (props: { currPage: number }) => {
-  const labels: string[] = ["Home", "Kalkulator", "Kecermatan", "Login", "Register"];
-  const path: string[] = ["/", "/Calculator", "/Test_Kecermatan", "/Login", "/Register"];
-  
+  const labels: string[] = [
+    "Home",
+    "Kalkulator",
+    "Kecermatan",
+    "Login",
+    "Register",
+  ];
+  const path: string[] = [
+    "/",
+    "/Calculator",
+    "/Test_Kecermatan",
+    "/Login",
+    "/Register",
+  ];
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Cek ukuran layar
   const [currentPage, setCurrentPage] = useState(props.currPage);
-  
+
   const [openDrawer, setOpenDrawer] = useState(false); // State untuk drawer
 
   const onLinkClick = (currPage: number) => {
     setCurrentPage(currPage);
   };
 
-  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-    setOpenDrawer(open); // Mengatur drawer terbuka atau tertutup
-  };
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      setOpenDrawer(open); 
+    };
 
   return (
     <Box sx={{ margin: 0, top: 0, left: 0, width: "100vw" }}>
@@ -46,7 +60,6 @@ const Navigation = (props: { currPage: number }) => {
             paddingRight: "16px",
           }}
         >
-          {/* Logo dan Teks PoliceCourse */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <img
               src={logo} // Logo
@@ -58,7 +71,6 @@ const Navigation = (props: { currPage: number }) => {
             </Typography>
           </Box>
 
-          {/* Menu Responsif */}
           {!isMobile ? (
             <Box
               sx={{
@@ -92,22 +104,63 @@ const Navigation = (props: { currPage: number }) => {
               >
                 <MenuIcon />
               </IconButton>
-              {/* Drawer untuk perangkat mobile */}
               <Drawer
-                anchor="right"
+                anchor="left"
                 open={openDrawer}
                 onClose={toggleDrawer(false)} // Tutup drawer saat di-klik di luar
               >
                 <Box
-                  sx={{ width: 250 }}
+                  sx={{
+                    width: 250,
+                    backgroundColor: "#333333",
+                    height: "100%",
+                  }}
                   role="presentation"
                   onClick={toggleDrawer(false)} // Tutup drawer saat item di klik
                   onKeyDown={toggleDrawer(false)}
                 >
                   <List>
+                    <Box sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                padding: "16px",
+                                borderRadius: "12px",
+                                marginBottom: "24px",
+                                width: "fit-content",
+                    }}>
+                      <img
+                        src={logo}
+                        alt="Logo"
+                        style={{ width: "50px", height: "40px" }}
+                      />
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          marginLeft: "16px",
+                          fontWeight: 500,
+                          color: "#FFF",
+                        }}
+                      >
+                        Police Course
+                      </Typography>
+
+                      <IconButton
+                        onClick={toggleDrawer(false)}
+                        aria-label="close"
+                        sx={{ color: "white", padding: "8px", marginLeft:"32px" }}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                    </Box>
+
                     {labels.map((label, index) => (
-                      <ListItem button key={label} component="a" href={path[index]}>
-                        <ListItemText primary={label} />
+                      <ListItem
+                        button
+                        key={label}
+                        component="a"
+                        href={path[index]}
+                      >
+                        <ListItemText sx={{ color: "white" }} primary={label} />
                       </ListItem>
                     ))}
                   </List>
@@ -131,7 +184,11 @@ const LabelLink = (props: {
   return (
     <>
       {props.label === "Login" && (
-        <Divider orientation="vertical" variant="middle" sx={{ height: "24px" }} />
+        <Divider
+          orientation="vertical"
+          variant="middle"
+          sx={{ height: "24px" }}
+        />
       )}
       <Box
         sx={{

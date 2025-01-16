@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Box
+            {/* <Box
               sx={{
                 backgroundColor: "#182430",
                 p: 2,
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
               <Typography variant="body1" sx={{ ml: 2, color: "#f8f8f8" }}>
                 dribbble.com/example
               </Typography>
-            </Box>
+            </Box> */}
           </Grid>
           <Grid item xs={12} md={4}>
             <Box

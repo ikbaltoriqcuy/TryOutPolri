@@ -6,6 +6,8 @@ const deleteExerciseCategory = require("./delete-exercise-category.usecase");
 const addExerciseLogs = require("./add-exercise-logs.usecase");
 const deleteExerciseLogs = require("./delete-exercise-logs.usecase");
 const getAllExerciseLogs = require("./get-all-exercise-logs.usecase");
+const getAllExerciseData = require("./get-all-exercise.usecase")
+const updateExerciseLogs = require("./update-all-exercise-logs.usecase");
 
 const getAllCategoryExerciseUsecase = getAllCategoryExercise({ exercise_categoriesDB });
 const addExerciseCategoryUsecase = addExerciseCategory({ exercise_categoriesDB });
@@ -13,6 +15,8 @@ const deleteExerciseCategoryUsecase = deleteExerciseCategory({ exercise_categori
 const addExerciseLogsUsecase = addExerciseLogs({ exercise_categoriesDB });
 const deleteExerciseLogsUsecase = deleteExerciseLogs({ exercise_categoriesDB });
 const getAllExerciseLogsUsecase = getAllExerciseLogs({ exercise_categoriesDB });
+const getAllExerciseUsecase = getAllExerciseData({ exercise_categoriesDB });
+const updateExerciseLogsUsecase = updateExerciseLogs({exercise_categoriesDB});
 
 const exerciseServices = Object.freeze({
   getAllCategoryExerciseUsecase,
@@ -20,7 +24,9 @@ const exerciseServices = Object.freeze({
   deleteExerciseCategoryUsecase,
   addExerciseLogsUsecase,
   deleteExerciseLogsUsecase,
-  getAllExerciseLogsUsecase
+  getAllExerciseLogsUsecase,
+  getAllExerciseUsecase,
+  updateExerciseLogsUsecase
 });
 
 module.exports = exerciseServices;
@@ -31,5 +37,7 @@ module.exports = {
   deleteExerciseCategoryUsecase,
   addExerciseLogsUsecase,
   deleteExerciseLogsUsecase,
-  getAllExerciseLogsUsecase
+  getAllExerciseLogsUsecase,
+  getAllExerciseUsecase,
+  updateExerciseLogsUsecase
 };

@@ -23,6 +23,7 @@ export interface UserUpdatePassword {
 }
 
 export interface UserData {
+    user_id: number,
     name: string;
     place_birth : string;
     date_birth : string;
@@ -35,6 +36,9 @@ export interface UserData {
     packet_id : number; 
     phone: string;
     username: string;
+    price: number,
+    current_quota: number,
+    date_purchase: string
 }
 
 export interface LoginData {
