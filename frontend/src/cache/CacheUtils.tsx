@@ -25,6 +25,7 @@ export const updateCache = (key: string, user: UserData) => {
     localStorage.setItem(key, JSON.stringify(item));
 };
 
+
 export const getCurrentExpiry = (key: string) => {
     const itemStr = localStorage.getItem(key);
     if (!itemStr) {

@@ -1,7 +1,7 @@
 const addUser = ({ userDB }) => {
     return async function postUser(info) {
 
-      const userExists = await userDB.getUserByEmail(info.user.email);
+      const userExists = await userDB.getUserByEmailForRegister(info.user.email);
   
       if (userExists.rowCount !== 0) {
         const result = {

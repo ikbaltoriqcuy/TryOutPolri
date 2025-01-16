@@ -10,6 +10,8 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Link,
+  Divider,
 } from "@mui/material";
 import {
   getProvince,
@@ -24,6 +26,7 @@ import { ApiResponse } from "../../../api/response";
 import { UserUpdateData, updateData, UserData } from "../../../api/user.api";
 import { updateCache, getCache, CACHE_KEY } from "../../../cache/CacheUtils";
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const EditProfile = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -59,13 +62,13 @@ const EditProfile = () => {
     navigate("/dashboard");
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     setTimeout(() => {
       setProvinceId(formValues.province.split("|")[0]);
       setCityId(formValues.city.split("|")[0].split(".")[1]);
     }, 200);
   }, []);
-  
+
   useEffect(() => {
     reqProvince();
   }, []);
@@ -268,14 +271,36 @@ const EditProfile = () => {
             }}
           >
             <Box
+            maxWidth="sm"
+              sx={{
+                width: "100vw",
+              }}
+            >
+              <Link
+                href="/dashboard"
+                sx={{ textDecoration: "none" }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<ArrowBackIcon />}
+                  sx={{ backgroundColor: "#f1db25", boxShadow: "none" }}
+                >
+                  Kembali
+                </Button>
+              </Link>
+            </Box>
+
+            <Box
               maxWidth="sm"
               sx={{
                 p: 3,
-                margin: "72px",
+                marginX: "72px",
+                marginTop: "32px",
                 background: "white",
                 borderRadius: "8px",
-                border: "2px solid", 
-                borderColor: "#F1F1F1"
+                border: "2px solid",
+                borderColor: "#F1F1F1",
               }}
             >
               <Typography variant="h5" gutterBottom>

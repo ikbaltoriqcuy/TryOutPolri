@@ -9,12 +9,14 @@ import {
   Button,
   IconButton,
   InputAdornment,
+  Link
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { updatePassword, UserUpdatePassword } from "../../../api/user.api";
 import { updateCache, getCache, CACHE_KEY } from "../../../cache/CacheUtils";
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const EditPassword = () => {
   const cache = getCache(CACHE_KEY);
@@ -83,6 +85,26 @@ const EditPassword = () => {
               alignItems: "center",
             }}
           >
+            <Box
+              maxWidth="sm"
+              sx={{
+                width: "100vw",
+              }}
+            >
+              <Link
+                href="/dashboard"
+                sx={{ textDecoration: "none" }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<ArrowBackIcon />}
+                  sx={{ backgroundColor: "#f1db25", boxShadow: "none" }}
+                >
+                  Kembali
+                </Button>
+              </Link>
+            </Box>
             <Box
               maxWidth="sm"
               sx={{

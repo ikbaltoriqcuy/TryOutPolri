@@ -4,6 +4,7 @@ const userData = ({ dbs }) => {
     addUser,
     getUserById,
     getUserByEmail,
+    getUserByEmailForRegister,
     changePassword,
     deleteUserById,
     updateUser
@@ -33,19 +34,93 @@ const userData = ({ dbs }) => {
 
   async function getUserById(id) {
     const connect = await dbs();
-    const sql = "SELECT * FROM public.\"User\" WHERE user_id = $1";
+    const sql = `
+      SELECT 
+        u.*,
+        pp.price,
+        pp.current_quota,
+        pp.date_purchase,
+        pp.packet_id
+      FROM public."User" u
+      LEFT JOIN public.purchase_packets pp ON u.user_id = pp.user_id
+      WHERE u.user_id = $1
+    `;
   
     const params = [id];
     return connect.query(sql, params);
   }
 
-  async function getUserByEmail(email) {
+  async function getUserByEmailForRegister(email) {
     const connect = await dbs();
-    const sql = "SELECT * FROM public.\"User\" WHERE email = $1";
+    const sql = `
+      SELECT 
+        u.*,
+        pp.price,
+        pp.current_quota,
+        pp.date_purchase,
+        pp.packet_id,
+        pp.last_update
+      FROM public."User" u
+      LEFT JOIN public.purchase_packets pp ON u.user_id = pp.user_id
+      WHERE u.email = $1
+    `;
   
     const params = [email];
     return connect.query(sql, params);
   }
+
+  async function getUserByEmail(email) {
+    const connect = await dbs();
+    const sqlSelect = `
+      SELECT 
+        u.*,
+        pp.price,
+        pp.current_quota,
+        pp.date_purchase,
+        pp.packet_id,
+        pp.last_update
+      FROM public."User" u
+      LEFT JOIN public.purchase_packets pp ON u.user_id = pp.user_id
+      WHERE u.email = $1
+    `;
+    const params = [email];
+    const result = await connect.query(sqlSelect, params);
+    const user = result.rows[0];
+
+    if (user) {
+        const lastUpdate = user.last_update;
+        const now = new Date();
+        
+        const lastUpdateDate = new Date(lastUpdate);
+
+        if (now.getDate() > lastUpdateDate.getDate() && now.getDay() !== lastUpdateDate.getDay()) {
+             try {
+              const getCurrentPacket = `
+                SELECT quota_per_day 
+                FROM public.packetcourse
+                WHERE packet_id = $1;`;
+              const quotaParam = [user.packet_id];
+              const resultQuota = await connect.query(getCurrentPacket, quotaParam);
+              const quota = resultQuota.rows[0];
+
+              const sqlUpdate = `
+                  UPDATE public.purchase_packets 
+                  SET current_quota = 15 
+                  WHERE user_id = $1
+                  RETURNING *;
+              `;
+              const updateParam = [user.user_id];
+              await connect.query(sqlUpdate, updateParam);
+
+              user.current_quota = quota.quota_per_day ?? -1;
+            } catch(e) {
+              user.current_quota = -1;
+            }
+        }
+    }
+    return user;
+}
+
 
   async function updateUser(user) {
     const connect = await dbs();

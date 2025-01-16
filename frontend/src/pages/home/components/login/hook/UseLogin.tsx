@@ -29,6 +29,12 @@ const useLogin = () => {
     try {
       const loginData: LoginData = { email: username, password: password };
       const result = await login(loginData);
+      const packetPurchased = {
+        user_id: result.data.user_id,
+        price: result.data.price,
+        current_quota: result.data.current_quota,
+        packet_id: result.data.packet_id
+      }
       setCache(CACHE_KEY, result.data, 24 * 60 * 60 * 1000);
       setIsErrorShow(false);
       navigate("/dashboard");

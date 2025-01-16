@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography, Button, Card, CardContent, Box } from "@mui/material";
-import { Link } from "react-router-dom"; // Import Link
+import { Container, Grid, Typography, Button, Card, CardContent, Box, Link } from "@mui/material";
 
 const FiturList: React.FC = () => {
   return (
@@ -17,13 +16,14 @@ const FiturList: React.FC = () => {
         <Grid item xs={12} md={4}>
           <Card
             sx={{
-              backgroundColor: "#f1db25",
+              backgroundColor: "#f5cb42",
               color: "#1e1e1e",
               borderRadius: "25px",
               padding: "80px 30px 50px 30px",
               marginBottom: "30px",
               marginRight: "30px",
               position: "relative",
+              boxShadow: 'none',
               transition: "all 0.4s",
               overflow: "visible",
               "&:hover": {
@@ -48,12 +48,12 @@ const FiturList: React.FC = () => {
               <img src="/images/service-03.png" alt="Icon" style={{ width: "100px", height: "100px" }} />
             </Box>
 
-            <CardContent>
+            <CardContent >
               <Typography variant="h5">Tes Akademik</Typography>
               <Typography variant="body1" sx={{ marginBottom: "25px" }}>
                 Tes akademik Polri merupakan bagian dari seleksi Polri untuk menilai pengetahuan calon anggota. Tes tersebut dilaksanakan dengan sistem CAT untuk mendapatkan standar minimal kompetensi dasar.
               </Typography>
-              <Link to="http://localhost:5173/Login" style={{ textDecoration: 'none' }}>
+              <Link href="/Login" style={{ textDecoration: 'none' }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -67,6 +67,7 @@ const FiturList: React.FC = () => {
                     padding: "0px 25px",
                     borderRadius: "20px",
                     transition: "all 0.3s",
+                    boxShadow: 'none',
                     "&:hover": {
                       backgroundColor: "#e0e0e0",
                     },
@@ -82,7 +83,7 @@ const FiturList: React.FC = () => {
         <Grid item xs={12} md={4}>
           <Card
             sx={{
-              backgroundColor: "#f1db25",
+              backgroundColor: "#f5cb42",
               color: "#1e1e1e",
               borderRadius: "25px",
               padding: "80px 30px 50px 30px",
@@ -90,6 +91,7 @@ const FiturList: React.FC = () => {
               marginRight: "30px",
               position: "relative",
               transition: "all 0.4s",
+              boxShadow: 'none',
               overflow: "visible",
               "&:hover": {
                 transform: "scale(1.05)",
@@ -119,7 +121,7 @@ const FiturList: React.FC = () => {
               <Typography variant="body1" sx={{ marginBottom: "25px" }}>
                 Kalkulator ini khusus untuk menghitung nilai tes jasmani bagi calon peserta Polri. Dengan memasukkan hasil latihan fisik, kalkulator ini akan memberikan nilai yang akurat sesuai standar Polri.
               </Typography>
-              <Link to="http://localhost:5173/Calculator" style={{ textDecoration: 'none' }}>
+              <Link href="/Calculator" style={{ textDecoration: 'none' }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -132,6 +134,7 @@ const FiturList: React.FC = () => {
                     lineHeight: "40px",
                     padding: "0px 25px",
                     borderRadius: "20px",
+                    boxShadow: 'none',
                     transition: "all 0.3s",
                     "&:hover": {
                       backgroundColor: "#e0e0e0",
@@ -148,7 +151,7 @@ const FiturList: React.FC = () => {
         <Grid item xs={12} md={4}>
           <Card
             sx={{
-              backgroundColor: "#f1db25",
+              backgroundColor: "#f5cb42",
               color: "#1e1e1e",
               borderRadius: "25px",
               padding: "80px 30px 50px 30px",
@@ -156,6 +159,7 @@ const FiturList: React.FC = () => {
               marginRight: "30px",
               position: "relative",
               transition: "all 0.4s",
+              boxShadow: 'none',
               overflow: "visible",
               "&:hover": {
                 transform: "scale(1.05)",
@@ -184,7 +188,7 @@ const FiturList: React.FC = () => {
               <Typography variant="body1" sx={{ marginBottom: "25px" }}>
                 Tes kecermatan adalah salah satu tahapan penting untuk mengikuti seleksi calon anggota Polri.
               </Typography>
-              <Link to="http://localhost:5173" style={{ textDecoration: 'none' }}>
+              <Link href="/" style={{ textDecoration: 'none' }}>
                 <Button
                   variant="contained"
                   sx={{
@@ -197,6 +201,7 @@ const FiturList: React.FC = () => {
                     lineHeight: "40px",
                     padding: "0px 25px",
                     borderRadius: "20px",
+                    boxShadow: 'none',
                     transition: "all 0.3s",
                     "&:hover": {
                       backgroundColor: "#e0e0e0",

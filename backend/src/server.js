@@ -8,6 +8,7 @@ const fs = require("fs");
 const userRoutes = require("./router/user.router");
 const addressRoutes = require("./router/address.router");
 const exerciseRoutes = require("./router/soal.router");
+const paymentRoutes = require("./router/payment.router");
 // create a write stream (in append mode)
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -43,6 +44,7 @@ app.get("/api", (req, res) => {
 
 
 app.use("/api", userRoutes);
+app.use("/api", paymentRoutes);
 app.use("/api", addressRoutes);
 app.use("/api", exerciseRoutes);
 

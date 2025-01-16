@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Box,
@@ -36,13 +36,13 @@ const CalculatorFitness: React.FC = () => {
   
 
   const [jenisKelamin, setJenisKelamin] = React.useState<string>('pria');
-  const [nilaiLari, setNilaiLari] = React.useState<number | null>(null);
-  const [nilaiPullUp, setNilaiPullUp] = React.useState<number | null>(null);
-  const [nilaiSitUp, setNilaiSitUp] = React.useState<number | null>(null);
-  const [nilaiPushUp, setNilaiPushUp] = React.useState<number | null>(null);
-  const [nilaiShuttleRun, setNilaiShuttleRun] = React.useState<number | null>(null);
-  const [nilaiRenang, setNilaiRenang] = React.useState<number | null>(null);
-  const [nilaiRataRata, setNilaiRataRata] = React.useState<number | null>(null);
+  const [nilaiLari, setNilaiLari] = React.useState<number | null>(0);
+  const [nilaiPullUp, setNilaiPullUp] = React.useState<number | null>(0);
+  const [nilaiSitUp, setNilaiSitUp] = React.useState<number | null>(0);
+  const [nilaiPushUp, setNilaiPushUp] = React.useState<number | null>(0);
+  const [nilaiShuttleRun, setNilaiShuttleRun] = React.useState<number | null>(0);
+  const [nilaiRenang, setNilaiRenang] = React.useState<number | null>(0);
+  const [nilaiRataRata, setNilaiRataRata] = React.useState<number | null>(0);
 
 
   // Fungsi untuk menghitung nilai lari berdasarkan jenis kelamin
@@ -254,66 +254,67 @@ const CalculatorFitness: React.FC = () => {
   // Fungsi untuk menghitung nilai Pull Up berdasarkan jenis kelamin
   const hitungNilaiPullUp = (pullup: number, jenisKelamin: string) => {
     if (jenisKelamin === 'pria') {
-      if (pullup >= 1) return 4;
-      if (pullup >= 2) return 8;
-      if (pullup >= 3) return 14;
-      if (pullup >= 4) return 20;
-      if (pullup >= 5) return 26;
-      if (pullup >= 6) return 32;
-      if (pullup >= 7) return 39;
-      if (pullup >= 8) return 46;
-      if (pullup >= 9) return 52;
-      if (pullup >= 10) return 58;
-      if (pullup >= 11) return 64;
-      if (pullup >= 12) return 70;
-      if (pullup >= 13) return 76;
-      if (pullup >= 14) return 82;
-      if (pullup >= 15) return 88;
-      if (pullup >= 16) return 94;
-      if (pullup >= 17) return 100;
+      if (pullup >= 1  && pullup < 2) return 4;
+      if (pullup >= 2 && pullup < 3) return 8;  // Range: 2..3
+    if (pullup >= 3 && pullup < 4) return 14; // Range: 3..4
+    if (pullup >= 4 && pullup < 5) return 20; // Range: 4..5
+    if (pullup >= 5 && pullup < 6) return 26; // Range: 5..6
+    if (pullup >= 6 && pullup < 7) return 32; // Range: 6..7
+    if (pullup >= 7 && pullup < 8) return 39; // Range: 7..8
+    if (pullup >= 8 && pullup < 9) return 46; // Range: 8..9
+    if (pullup >= 9 && pullup < 10) return 52; // Range: 9..10
+    if (pullup >= 10 && pullup < 11) return 58; // Range: 10..11
+    if (pullup >= 11 && pullup < 12) return 64; // Range: 11..12
+    if (pullup >= 12 && pullup < 13) return 70; // Range: 12..13
+    if (pullup >= 13 && pullup < 14) return 76; // Range: 13..14
+    if (pullup >= 14 && pullup < 15) return 82; // Range: 14..15
+    if (pullup >= 15 && pullup < 16) return 88; // Range: 15..16
+    if (pullup >= 16 && pullup < 17) return 94; // Range: 16..17
+    if (pullup >= 17) return 100; // 17 and above
   
       return 0;
     } else {
-      if (pullup >= 33) return 2; // Contoh untuk nilai wanita
-      if (pullup >= 34) return 5;
-      if (pullup >= 35) return 7;
-      if (pullup >= 36) return 10;
-      if (pullup >= 37) return 12;
-      if (pullup >= 38) return 14;
-      if (pullup >= 39) return 17;
-      if (pullup >= 40) return 20;
-      if (pullup >= 41) return 22;
-      if (pullup >= 42) return 25;
-      if (pullup >= 43) return 27;
-      if (pullup >= 44) return 30;
-      if (pullup >= 45) return 32;
-      if (pullup >= 46) return 34;
-      if (pullup >= 47) return 37;
-      if (pullup >= 48) return 39;
-      if (pullup >= 49) return 42;
-      if (pullup >= 50) return 44;
-      if (pullup >= 51) return 47;
-      if (pullup >= 52) return 52;
-      if (pullup >= 53) return 55;
-      if (pullup >= 54) return 56;
-      if (pullup >= 55) return 59;
-      if (pullup >= 56) return 62;
-      if (pullup >= 57) return 64;
-      if (pullup >= 58) return 67;
-      if (pullup >= 59) return 69;
-      if (pullup >= 60) return 72;
-      if (pullup >= 61) return 74;
-      if (pullup >= 62) return 75;
-      if (pullup >= 63) return 77;
-      if (pullup >= 64) return 80;
-      if (pullup >= 65) return 82;
-      if (pullup >= 66) return 85;
-      if (pullup >= 67) return 87;
-      if (pullup >= 68) return 90;
-      if (pullup >= 69) return 92;
-      if (pullup >= 70) return 95;
-      if (pullup >= 71) return 97;
-      if (pullup >= 72) return 100;
+      if (pullup >= 33 && pullup < 34) return 2;   // Range: 33..34
+    if (pullup >= 34 && pullup < 35) return 5;   // Range: 34..35
+    if (pullup >= 35 && pullup < 36) return 7;   // Range: 35..36
+    if (pullup >= 36 && pullup < 37) return 10;  // Range: 36..37
+    if (pullup >= 37 && pullup < 38) return 12;  // Range: 37..38
+    if (pullup >= 38 && pullup < 39) return 14;  // Range: 38..39
+    if (pullup >= 39 && pullup < 40) return 17;  // Range: 39..40
+    if (pullup >= 40 && pullup < 41) return 20;  // Range: 40..41
+    if (pullup >= 41 && pullup < 42) return 22;  // Range: 41..42
+    if (pullup >= 42 && pullup < 43) return 25;  // Range: 42..43
+    if (pullup >= 43 && pullup < 44) return 27;  // Range: 43..44
+    if (pullup >= 44 && pullup < 45) return 30;  // Range: 44..45
+    if (pullup >= 45 && pullup < 46) return 32;  // Range: 45..46
+    if (pullup >= 46 && pullup < 47) return 34;  // Range: 46..47
+    if (pullup >= 47 && pullup < 48) return 37;  // Range: 47..48
+    if (pullup >= 48 && pullup < 49) return 39;  // Range: 48..49
+    if (pullup >= 49 && pullup < 50) return 42;  // Range: 49..50
+    if (pullup >= 50 && pullup < 51) return 44;  // Range: 50..51
+    if (pullup >= 51 && pullup < 52) return 47;  // Range: 51..52
+    if (pullup >= 52 && pullup < 53) return 52;  // Range: 52..53
+    if (pullup >= 53 && pullup < 54) return 55;  // Range: 53..54
+    if (pullup >= 54 && pullup < 55) return 56;  // Range: 54..55
+    if (pullup >= 55 && pullup < 56) return 59;  // Range: 55..56
+    if (pullup >= 56 && pullup < 57) return 62;  // Range: 56..57
+    if (pullup >= 57 && pullup < 58) return 64;  // Range: 57..58
+    if (pullup >= 58 && pullup < 59) return 67;  // Range: 58..59
+    if (pullup >= 59 && pullup < 60) return 69;  // Range: 59..60
+    if (pullup >= 60 && pullup < 61) return 72;  // Range: 60..61
+    if (pullup >= 61 && pullup < 62) return 74;  // Range: 61..62
+    if (pullup >= 62 && pullup < 63) return 75;  // Range: 62..63
+    if (pullup >= 63 && pullup < 64) return 77;  // Range: 63..64
+    if (pullup >= 64 && pullup < 65) return 80;  // Range: 64..65
+    if (pullup >= 65 && pullup < 66) return 82;  // Range: 65..66
+    if (pullup >= 66 && pullup < 67) return 85;  // Range: 66..67
+    if (pullup >= 67 && pullup < 68) return 87;  // Range: 67..68
+    if (pullup >= 68 && pullup < 69) return 90;  // Range: 68..69
+    if (pullup >= 69 && pullup < 70) return 92;  // Range: 69..70
+    if (pullup >= 70 && pullup < 71) return 95;  // Range: 70..71
+    if (pullup >= 71 && pullup < 72) return 97;  // Range: 71..72
+    if (pullup >= 72) return 100; // 72 and above
+
   
       return 0;
     }
@@ -323,77 +324,77 @@ const CalculatorFitness: React.FC = () => {
   // Fungsi untuk menghitung nilai Sit Up berdasarkan jenis kelamin
   const hitungNilaiSitUp = (situp: number, jenisKelamin: string) => {
     if (jenisKelamin === 'pria') {
-      if (situp >= 6) return 1;
-      if (situp >= 7) return 2;
-      if (situp >= 8) return 4;
-      if (situp >= 9) return 6;
-      if (situp >= 10) return 8;
-      if (situp >= 11) return 10;
-      if (situp >= 12) return 12;
-      if (situp >= 13) return 14;
-      if (situp >= 14) return 16;
-      if (situp >= 15) return 18;
-      if (situp >= 16) return 20;
-      if (situp >= 17) return 22;
-      if (situp >= 18) return 24;
-      if (situp >= 19) return 26;
-      if (situp >= 20) return 28;
-      if (situp >= 21) return 30;
-      if (situp >= 22) return 32;
-      if (situp >= 23) return 35;
-      if (situp >= 24) return 38;
-      if (situp >= 25) return 41;
-      if (situp >= 26) return 44;
-      if (situp >= 27) return 48;
-      if (situp >= 28) return 52;
-      if (situp >= 29) return 56;
-      if (situp >= 30) return 60;
-      if (situp >= 31) return 64;
-      if (situp >= 32) return 68;
-      if (situp >= 33) return 72;
-      if (situp >= 34) return 76;
-      if (situp >= 35) return 80;
-      if (situp >= 36) return 84;
-      if (situp >= 37) return 88;
-      if (situp >= 38) return 92;
-      if (situp >= 39) return 96;
-      if (situp >= 40) return 100;
+      if (situp >= 6 && situp < 7) return 1;    // Range: 6..7
+    if (situp >= 7 && situp < 8) return 2;    // Range: 7..8
+    if (situp >= 8 && situp < 9) return 4;    // Range: 8..9
+    if (situp >= 9 && situp < 10) return 6;   // Range: 9..10
+    if (situp >= 10 && situp < 11) return 8;  // Range: 10..11
+    if (situp >= 11 && situp < 12) return 10; // Range: 11..12
+    if (situp >= 12 && situp < 13) return 12; // Range: 12..13
+    if (situp >= 13 && situp < 14) return 14; // Range: 13..14
+    if (situp >= 14 && situp < 15) return 16; // Range: 14..15
+    if (situp >= 15 && situp < 16) return 18; // Range: 15..16
+    if (situp >= 16 && situp < 17) return 20; // Range: 16..17
+    if (situp >= 17 && situp < 18) return 22; // Range: 17..18
+    if (situp >= 18 && situp < 19) return 24; // Range: 18..19
+    if (situp >= 19 && situp < 20) return 26; // Range: 19..20
+    if (situp >= 20 && situp < 21) return 28; // Range: 20..21
+    if (situp >= 21 && situp < 22) return 30; // Range: 21..22
+    if (situp >= 22 && situp < 23) return 32; // Range: 22..23
+    if (situp >= 23 && situp < 24) return 35; // Range: 23..24
+    if (situp >= 24 && situp < 25) return 38; // Range: 24..25
+    if (situp >= 25 && situp < 26) return 41; // Range: 25..26
+    if (situp >= 26 && situp < 27) return 44; // Range: 26..27
+    if (situp >= 27 && situp < 28) return 48; // Range: 27..28
+    if (situp >= 28 && situp < 29) return 52; // Range: 28..29
+    if (situp >= 29 && situp < 30) return 56; // Range: 29..30
+    if (situp >= 30 && situp < 31) return 60; // Range: 30..31
+    if (situp >= 31 && situp < 32) return 64; // Range: 31..32
+    if (situp >= 32 && situp < 33) return 68; // Range: 32..33
+    if (situp >= 33 && situp < 34) return 72; // Range: 33..34
+    if (situp >= 34 && situp < 35) return 76; // Range: 34..35
+    if (situp >= 35 && situp < 36) return 80; // Range: 35..36
+    if (situp >= 36 && situp < 37) return 84; // Range: 36..37
+    if (situp >= 37 && situp < 38) return 88; // Range: 37..38
+    if (situp >= 38 && situp < 39) return 92; // Range: 38..39
+    if (situp >= 39 && situp < 40) return 96; // Range: 39..40
+    if (situp >= 40) return 100; // 40 and above
       return 0;
     } else {
-      if (situp >= 17) return 1;  // Contoh untuk nilai wanita
-      if (situp >= 18) return 3;
-      if (situp >= 19) return 6;
-      if (situp >= 20) return 10;
-      if (situp >= 21) return 12;
-      if (situp >= 22) return 15;
-      if (situp >= 23) return 19;
-      if (situp >= 24) return 21;
-      if (situp >= 25) return 24;
-      if (situp >= 26) return 26;
-      if (situp >= 27) return 29;
-      if (situp >= 28) return 33;
-      if (situp >= 29) return 37;
-      if (situp >= 30) return 39;
-      if (situp >= 31) return 42;
-      if (situp >= 32) return 46;
-      if (situp >= 33) return 48;
-      if (situp >= 34) return 51;
-      if (situp >= 35) return 55;
-      if (situp >= 36) return 57;
-      if (situp >= 37) return 60;
-      if (situp >= 38) return 64;
-      if (situp >= 39) return 66;
-      if (situp >= 40) return 69;
-      if (situp >= 41) return 73;
-      if (situp >= 42) return 75;
-      if (situp >= 43) return 78;
-      if (situp >= 44) return 82;
-      if (situp >= 45) return 84;
-      if (situp >= 46) return 87;
-      if (situp >= 47) return 91;
-      if (situp >= 48) return 93;
-      if (situp >= 49) return 96;
-      if (situp >= 50) return 100;
+      if (situp >= 17 && situp < 18) return 1;   // Range: 17..18
+    if (situp >= 18 && situp < 19) return 3;   // Range: 18..19
+    if (situp >= 19 && situp < 20) return 6;   // Range: 19..20
+    if (situp >= 20 && situp < 21) return 10;  // Range: 20..21
+    if (situp >= 21 && situp < 22) return 12;  // Range: 21..22
+    if (situp >= 22 && situp < 23) return 15;  // Range: 22..23
+    if (situp >= 23 && situp < 24) return 19;  // Range: 23..24
+    if (situp >= 24 && situp < 25) return 21;  // Range: 24..25
+    if (situp >= 25 && situp < 26) return 24;  // Range: 25..26
+    if (situp >= 26 && situp < 27) return 26;  // Range: 26..27
+    if (situp >= 27 && situp < 28) return 29;  // Range: 27..28
+    if (situp >= 28 && situp < 29) return 33;  // Range: 28..29
+    if (situp >= 29 && situp < 30) return 37;  // Range: 29..30
+    if (situp >= 30 && situp < 31) return 39;  // Range: 30..31
+    if (situp >= 31 && situp < 32) return 42;  // Range: 31..32
+    if (situp >= 32 && situp < 33) return 46;  // Range: 32..33
+    if (situp >= 33 && situp < 34) return 48;  // Range: 33..34
+    if (situp >= 34 && situp < 35) return 51;  // Range: 34..35
+    if (situp >= 35 && situp < 36) return 55;  // Range: 35..36
+    if (situp >= 36 && situp < 37) return 57;  // Range: 36..37
+    if (situp >= 37 && situp < 38) return 60;  // Range: 37..38
+    if (situp >= 38 && situp < 39) return 64;  // Range: 38..39
+    if (situp >= 39 && situp < 40) return 66;  // Range: 39..40
+    if (situp >= 40 && situp < 41) return 69;  // Range: 40..41
+    if (situp >= 41 && situp < 42) return 73;  // Range: 41..42
+    if (situp >= 42 && situp < 43) return 75;  // Range: 42..43
+    if (situp >= 43 && situp < 44) return 78;  // Range: 43..44
+    if (situp >= 44 && situp < 45) return 82;  // Range: 44..45
+    if (situp >= 45 && situp < 46) return 84;  // Range: 45..46
+    if (situp >= 46 && situp < 47) return 87;  // Range: 46..47
+    if (situp >= 47 && situp < 48) return 91;  // Range: 47..48
+    if (situp >= 48 && situp < 49) return 93;  // Range: 48..49
+    if (situp >= 49 && situp < 50) return 96;  // Range: 49..50
+    if (situp >= 50) return 100;                 //
 
       return 0;
     }
@@ -404,81 +405,80 @@ const CalculatorFitness: React.FC = () => {
 // Fungsi untuk menghitung nilai Push Up berdasarkan jenis kelamin
 const hitungNilaiPushUp = (pushup: number, jenisKelamin: string) => {
   if (jenisKelamin === 'pria') {
-    if (pushup >= 1) return 3;
-    if (pushup >= 2) return 4;
-    if (pushup >= 3) return 5;
-    if (pushup >= 4) return 6;
-    if (pushup >= 5) return 7;
-    if (pushup >= 6) return 9;
-    if (pushup >= 7) return 11;
-    if (pushup >= 8) return 13;
-    if (pushup >= 9) return 15;
-    if (pushup >= 10) return 17;
-    if (pushup >= 11) return 19;
-    if (pushup >= 12) return 21;
-    if (pushup >= 13) return 23;
-    if (pushup >= 14) return 26;
-    if (pushup >= 15) return 29;
-    if (pushup >= 16) return 32;
-    if (pushup >= 17) return 34;
-    if (pushup >= 18) return 36;
-    if (pushup >= 19) return 38;
-    if (pushup >= 20) return 40;
-    if (pushup >= 21) return 42;
-    if (pushup >= 22) return 44;
-    if (pushup >= 23) return 46;
-    if (pushup >= 24) return 48;
-    if (pushup >= 25) return 50;
-    if (pushup >= 26) return 52;
-    if (pushup >= 27) return 55;
-    if (pushup >= 28) return 58;
-    if (pushup >= 29) return 61;
-    if (pushup >= 30) return 64;
-    if (pushup >= 31) return 67;
-    if (pushup >= 32) return 70;
-    if (pushup >= 33) return 73;
-    if (pushup >= 34) return 76;
-    if (pushup >= 35) return 79;
-    if (pushup >= 36) return 82;
-    if (pushup >= 37) return 85;
-    if (pushup >= 38) return 88;
-    if (pushup >= 39) return 91;
-    if (pushup >= 40) return 94;
-    if (pushup >= 41) return 97;
-    if (pushup >= 42) return 100;
-    if (pushup > 43) return 100;
+    if (pushup >= 1 && pushup < 2) return 3;    // Range: 1..2
+    if (pushup >= 2 && pushup < 3) return 4;    // Range: 2..3
+    if (pushup >= 3 && pushup < 4) return 5;    // Range: 3..4
+    if (pushup >= 4 && pushup < 5) return 6;    // Range: 4..5
+    if (pushup >= 5 && pushup < 6) return 7;    // Range: 5..6
+    if (pushup >= 6 && pushup < 7) return 9;    // Range: 6..7
+    if (pushup >= 7 && pushup < 8) return 11;   // Range: 7..8
+    if (pushup >= 8 && pushup < 9) return 13;   // Range: 8..9
+    if (pushup >= 9 && pushup < 10) return 15;  // Range: 9..10
+    if (pushup >= 10 && pushup < 11) return 17; // Range: 10..11
+    if (pushup >= 11 && pushup < 12) return 19; // Range: 11..12
+    if (pushup >= 12 && pushup < 13) return 21; // Range: 12..13
+    if (pushup >= 13 && pushup < 14) return 23; // Range: 13..14
+    if (pushup >= 14 && pushup < 15) return 26; // Range: 14..15
+    if (pushup >= 15 && pushup < 16) return 29; // Range: 15..16
+    if (pushup >= 16 && pushup < 17) return 32; // Range: 16..17
+    if (pushup >= 17 && pushup < 18) return 34; // Range: 17..18
+    if (pushup >= 18 && pushup < 19) return 36; // Range: 18..19
+    if (pushup >= 19 && pushup < 20) return 38; // Range: 19..20
+    if (pushup >= 20 && pushup < 21) return 40; // Range: 20..21
+    if (pushup >= 21 && pushup < 22) return 42; // Range: 21..22
+    if (pushup >= 22 && pushup < 23) return 44; // Range: 22..23
+    if (pushup >= 23 && pushup < 24) return 46; // Range: 23..24
+    if (pushup >= 24 && pushup < 25) return 48; // Range: 24..25
+    if (pushup >= 25 && pushup < 26) return 50; // Range: 25..26
+    if (pushup >= 26 && pushup < 27) return 52; // Range: 26..27
+    if (pushup >= 27 && pushup < 28) return 55; // Range: 27..28
+    if (pushup >= 28 && pushup < 29) return 58; // Range: 28..29
+    if (pushup >= 29 && pushup < 30) return 61; // Range: 29..30
+    if (pushup >= 30 && pushup < 31) return 64; // Range: 30..31
+    if (pushup >= 31 && pushup < 32) return 67; // Range: 31..32
+    if (pushup >= 32 && pushup < 33) return 70; // Range: 32..33
+    if (pushup >= 33 && pushup < 34) return 73; // Range: 33..34
+    if (pushup >= 34 && pushup < 35) return 76; // Range: 34..35
+    if (pushup >= 35 && pushup < 36) return 79; // Range: 35..36
+    if (pushup >= 36 && pushup < 37) return 82; // Range: 36..37
+    if (pushup >= 37 && pushup < 38) return 85; // Range: 37..38
+    if (pushup >= 38 && pushup < 39) return 88; // Range: 38..39
+    if (pushup >= 39 && pushup < 40) return 91; // Range: 39..40
+    if (pushup >= 40 && pushup < 41) return 94; // Range: 40..41
+    if (pushup >= 41 && pushup < 42) return 97; // Range: 41..42
+    if (pushup > 42) return 100;          
     return 0;
   } else {
-    if (pushup >= 1 && pushup <= 8) return 1; // Contoh nilai untuk wanita
-    if (pushup >= 9) return 2;
-    if (pushup >= 10) return 6;
-    if (pushup >= 11) return 9;
-    if (pushup >= 12) return 13;
-    if (pushup >= 13) return 16;
-    if (pushup >= 14) return 20;
-    if (pushup >= 15) return 23;
-    if (pushup >= 16) return 27;
-    if (pushup >= 17) return 30;
-    if (pushup >= 18) return 34;
-    if (pushup >= 19) return 37;
-    if (pushup >= 20) return 41;
-    if (pushup >= 21) return 44;
-    if (pushup >= 22) return 48;
-    if (pushup >= 23) return 51;
-    if (pushup >= 24) return 55;
-    if (pushup >= 25) return 58;
-    if (pushup >= 26) return 62;
-    if (pushup >= 27) return 65;
-    if (pushup >= 28) return 69;
-    if (pushup >= 29) return 72;
-    if (pushup >= 30) return 76;
-    if (pushup >= 31) return 79;
-    if (pushup >= 32) return 83;
-    if (pushup >= 33) return 86;
-    if (pushup >= 34) return 90;
-    if (pushup >= 35) return 93;
-    if (pushup >= 36) return 97;
-    if (pushup >= 37) return 100;
+    if (pushup >= 1 && pushup <= 8) return 1;    // Range: 1..8
+    if (pushup >= 9 && pushup < 10) return 2;    // Range: 9..10
+    if (pushup >= 10 && pushup < 11) return 6;   // Range: 10..11
+    if (pushup >= 11 && pushup < 12) return 9;   // Range: 11..12
+    if (pushup >= 12 && pushup < 13) return 13;  // Range: 12..13
+    if (pushup >= 13 && pushup < 14) return 16;  // Range: 13..14
+    if (pushup >= 14 && pushup < 15) return 20;  // Range: 14..15
+    if (pushup >= 15 && pushup < 16) return 23;  // Range: 15..16
+    if (pushup >= 16 && pushup < 17) return 27;  // Range: 16..17
+    if (pushup >= 17 && pushup < 18) return 30;  // Range: 17..18
+    if (pushup >= 18 && pushup < 19) return 34;  // Range: 18..19
+    if (pushup >= 19 && pushup < 20) return 37;  // Range: 19..20
+    if (pushup >= 20 && pushup < 21) return 41;  // Range: 20..21
+    if (pushup >= 21 && pushup < 22) return 44;  // Range: 21..22
+    if (pushup >= 22 && pushup < 23) return 48;  // Range: 22..23
+    if (pushup >= 23 && pushup < 24) return 51;  // Range: 23..24
+    if (pushup >= 24 && pushup < 25) return 55;  // Range: 24..25
+    if (pushup >= 25 && pushup < 26) return 58;  // Range: 25..26
+    if (pushup >= 26 && pushup < 27) return 62;  // Range: 26..27
+    if (pushup >= 27 && pushup < 28) return 65;  // Range: 27..28
+    if (pushup >= 28 && pushup < 29) return 69;  // Range: 28..29
+    if (pushup >= 29 && pushup < 30) return 72;  // Range: 29..30
+    if (pushup >= 30 && pushup < 31) return 76;  // Range: 30..31
+    if (pushup >= 31 && pushup < 32) return 79;  // Range: 31..32
+    if (pushup >= 32 && pushup < 33) return 83;  // Range: 32..33
+    if (pushup >= 33 && pushup < 34) return 86;  // Range: 33..34
+    if (pushup >= 34 && pushup < 35) return 90;  // Range: 34..35
+    if (pushup >= 35 && pushup < 36) return 93;  // Range: 35..36
+    if (pushup >= 36 && pushup < 37) return 97;  // Range: 36..37
+    if (pushup >= 37) return 100;       
 
     return 0;
   }
@@ -487,166 +487,167 @@ const hitungNilaiPushUp = (pushup: number, jenisKelamin: string) => {
 // Fungsi untuk menghitung nilai Shuttle Run berdasarkan jenis kelamin
 const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
   if (jenisKelamin === 'pria') {
-    if (shuttlerun <= 16.2) return 100;
-    if (shuttlerun <= 16.3) return 99;
-    if (shuttlerun <= 16.4) return 98;
-    if (shuttlerun <= 16.5) return 97;
-    if (shuttlerun <= 16.6) return 96;
-    if (shuttlerun <= 16.7) return 95;
-    if (shuttlerun <= 16.8) return 94;
-    if (shuttlerun <= 16.9) return 92;
-    if (shuttlerun <= 17) return 90;
-    if (shuttlerun <= 17.1) return 88;
-    if (shuttlerun <= 17.2) return 86;
-    if (shuttlerun <= 17.3) return 84;
-    if (shuttlerun <= 17.4) return 82;
-    if (shuttlerun <= 17.5) return 80;
-    if (shuttlerun <= 17.6) return 78;
-    if (shuttlerun <= 17.7) return 76;
-    if (shuttlerun <= 17.8) return 74;
-    if (shuttlerun <= 17.9) return 72;
-    if (shuttlerun <= 18) return 70;
-    if (shuttlerun <= 18.1) return 68;
-    if (shuttlerun <= 18.2) return 66;
-    if (shuttlerun <= 18.3) return 64;
-    if (shuttlerun <= 18.4) return 62;
-    if (shuttlerun <= 18.5) return 60;
-    if (shuttlerun <= 18.6) return 58;
-    if (shuttlerun <= 18.7) return 56;
-    if (shuttlerun <= 18.8) return 54;
-    if (shuttlerun <= 18.9) return 52;
-    if (shuttlerun <= 19) return 51;
-    if (shuttlerun <= 19.1) return 49;
-    if (shuttlerun <= 19.2) return 47;
-    if (shuttlerun <= 19.3) return 45;
-    if (shuttlerun <= 19.4) return 43;
-    if (shuttlerun <= 19.5) return 41;
-    if (shuttlerun <= 19.6) return 40;
-    if (shuttlerun <= 19.7) return 38;
-    if (shuttlerun <= 19.8) return 36;
-    if (shuttlerun <= 19.9) return 34;
-    if (shuttlerun <= 20) return 32;
-    if (shuttlerun <= 20.1) return 30;
-    if (shuttlerun <= 20.2) return 28;
-    if (shuttlerun <= 20.3) return 26;
-    if (shuttlerun <= 20.4) return 24;
-    if (shuttlerun <= 20.5) return 22;
-    if (shuttlerun <= 20.6) return 21;
-    if (shuttlerun <= 20.7) return 19;
-    if (shuttlerun <= 20.8) return 17;
-    if (shuttlerun <= 20.9) return 15;
-    if (shuttlerun <= 21) return 13;
-    if (shuttlerun <= 21.1) return 11;
-    if (shuttlerun <= 21.2) return 10;
-    if (shuttlerun <= 21.3) return 8;
-    if (shuttlerun <= 21.4) return 6;
-    if (shuttlerun <= 21.5) return 4;
-    if (shuttlerun <= 21.6) return 2;
-    if (shuttlerun <= 21.7) return 0;
+    if (shuttlerun > 16.3) return 100;
+    if (shuttlerun >= 16.2 && shuttlerun < 16.3) return 100; 
+    if (shuttlerun >= 16.3 && shuttlerun < 16.4) return 99; 
+    if (shuttlerun >= 16.4 && shuttlerun < 16.5) return 98; 
+    if (shuttlerun >= 16.5 && shuttlerun < 16.6) return 97; 
+    if (shuttlerun >= 16.6 && shuttlerun < 16.7) return 96; 
+    if (shuttlerun >= 16.7 && shuttlerun < 16.8) return 95; 
+    if (shuttlerun >= 16.8 && shuttlerun < 16.9) return 94; 
+    if (shuttlerun >= 16.9 && shuttlerun < 17) return 92; 
+    if (shuttlerun >= 17 && shuttlerun < 17.1) return 90; 
+    if (shuttlerun >= 17.1 && shuttlerun < 17.2) return 88; 
+    if (shuttlerun >= 17.2 && shuttlerun < 17.3) return 86; 
+    if (shuttlerun >= 17.3 && shuttlerun < 17.4) return 84; 
+    if (shuttlerun >= 17.4 && shuttlerun < 17.5) return 82; 
+    if (shuttlerun >= 17.5 && shuttlerun < 17.6) return 80; 
+    if (shuttlerun >= 17.6 && shuttlerun < 17.7) return 78; 
+    if (shuttlerun >= 17.7 && shuttlerun < 17.8) return 76; 
+    if (shuttlerun >= 17.8 && shuttlerun < 17.9) return 74; 
+    if (shuttlerun >= 17.9 && shuttlerun < 18) return 72; 
+    if (shuttlerun >= 18 && shuttlerun < 18.1) return 70; 
+    if (shuttlerun >= 18.1 && shuttlerun < 18.2) return 68; 
+    if (shuttlerun >= 18.2 && shuttlerun < 18.3) return 66; 
+    if (shuttlerun >= 18.3 && shuttlerun < 18.4) return 64; 
+    if (shuttlerun >= 18.4 && shuttlerun < 18.5) return 62; 
+    if (shuttlerun >= 18.5 && shuttlerun < 18.6) return 60; 
+    if (shuttlerun >= 18.6 && shuttlerun < 18.7) return 58; 
+    if (shuttlerun >= 18.7 && shuttlerun < 18.8) return 56; 
+    if (shuttlerun >= 18.8 && shuttlerun < 18.9) return 54; 
+    if (shuttlerun >= 18.9 && shuttlerun < 19) return 52; 
+    if (shuttlerun >= 19 && shuttlerun < 19.1) return 51; 
+    if (shuttlerun >= 19.1 && shuttlerun < 19.2) return 49; 
+    if (shuttlerun >= 19.2 && shuttlerun < 19.3) return 47; 
+    if (shuttlerun >= 19.3 && shuttlerun < 19.4) return 45; 
+    if (shuttlerun >= 19.4 && shuttlerun < 19.5) return 43; 
+    if (shuttlerun >= 19.5 && shuttlerun < 19.6) return 41; 
+    if (shuttlerun >= 19.6 && shuttlerun < 19.7) return 40; 
+    if (shuttlerun >= 19.7 && shuttlerun < 19.8) return 38; 
+    if (shuttlerun >= 19.8 && shuttlerun < 19.9) return 36; 
+    if (shuttlerun >= 19.9 && shuttlerun < 20) return 34; 
+    if (shuttlerun >= 20 && shuttlerun < 20.1) return 32; 
+    if (shuttlerun >= 20.1 && shuttlerun < 20.2) return 30; 
+    if (shuttlerun >= 20.2 && shuttlerun < 20.3) return 28; 
+    if (shuttlerun >= 20.3 && shuttlerun < 20.4) return 26; 
+    if (shuttlerun >= 20.4 && shuttlerun < 20.5) return 24; 
+    if (shuttlerun >= 20.5 && shuttlerun < 20.6) return 22; 
+    if (shuttlerun >= 20.6 && shuttlerun < 20.7) return 21; 
+    if (shuttlerun >= 20.7 && shuttlerun < 20.8) return 19; 
+    if (shuttlerun >= 20.8 && shuttlerun < 20.9) return 17; 
+    if (shuttlerun >= 20.9 && shuttlerun < 21) return 15; 
+    if (shuttlerun >= 21 && shuttlerun < 21.1) return 13; 
+    if (shuttlerun >= 21.1 && shuttlerun < 21.2) return 11; 
+    if (shuttlerun >= 21.2 && shuttlerun < 21.3) return 10; 
+    if (shuttlerun >= 21.3 && shuttlerun < 21.4) return 8; 
+    if (shuttlerun >= 21.4 && shuttlerun < 21.5) return 6; 
+    if (shuttlerun >= 21.5 && shuttlerun < 21.6) return 4; 
+    if (shuttlerun >= 21.6 && shuttlerun < 21.7) return 2; 
+    if (shuttlerun >= 21.7) return 0; 
     return 0;
   } else {
-    if (shuttlerun <= 17.6) return 100;
-    if (shuttlerun <= 17.7) return 99;
-    if (shuttlerun <= 17.8) return 98;
-    if (shuttlerun <= 17.9) return 97;
-    if (shuttlerun <= 18) return 96;
-    if (shuttlerun <= 18.1) return 95;
-    if (shuttlerun <= 18.2) return 94;
-    if (shuttlerun <= 18.3) return 93;
-    if (shuttlerun <= 18.4) return 92;
-    if (shuttlerun <= 18.5) return 91;
-    if (shuttlerun <= 18.6) return 90;
-    if (shuttlerun <= 18.7) return 89;
-    if (shuttlerun <= 18.8) return 88;
-    if (shuttlerun <= 18.9) return 87;
-    if (shuttlerun <= 19) return 86;
-    if (shuttlerun <= 19.1) return 85;
-    if (shuttlerun <= 19.2) return 84;
-    if (shuttlerun <= 19.3) return 83;
-    if (shuttlerun <= 19.4) return 82;
-    if (shuttlerun <= 19.5) return 81;
-    if (shuttlerun <= 19.6) return 80;
-    if (shuttlerun <= 19.7) return 79;
-    if (shuttlerun <= 19.8) return 78;
-    if (shuttlerun <= 19.9) return 77;
-    if (shuttlerun <= 20) return 76;
-    if (shuttlerun <= 20.1) return 75;
-    if (shuttlerun <= 20.2) return 74;
-    if (shuttlerun <= 20.3) return 73;
-    if (shuttlerun <= 20.4) return 72;
-    if (shuttlerun <= 20.5) return 71;
-    if (shuttlerun <= 20.6) return 70;
-    if (shuttlerun <= 20.7) return 69;
-    if (shuttlerun <= 20.8) return 68;
-    if (shuttlerun <= 20.9) return 67;
-    if (shuttlerun <= 21) return 66;
-    if (shuttlerun <= 21.1) return 65;
-    if (shuttlerun <= 21.2) return 64;
-    if (shuttlerun <= 21.3) return 63;
-    if (shuttlerun <= 21.4) return 62;
-    if (shuttlerun <= 21.5) return 61;
-    if (shuttlerun <= 21.6) return 60;
-    if (shuttlerun <= 21.7) return 59;
-    if (shuttlerun <= 21.8) return 58;
-    if (shuttlerun <= 21.9) return 57;
-    if (shuttlerun <= 22) return 56;
-    if (shuttlerun <= 22.1) return 55;
-    if (shuttlerun <= 22.2) return 54;
-    if (shuttlerun <= 22.3) return 53;
-    if (shuttlerun <= 22.4) return 52;
-    if (shuttlerun <= 22.5) return 51;
-    if (shuttlerun <= 22.6) return 50;
-    if (shuttlerun <= 22.7) return 49;
-    if (shuttlerun <= 22.8) return 48;
-    if (shuttlerun <= 22.9) return 47;
-    if (shuttlerun <= 23) return 46;
-    if (shuttlerun <= 23.1) return 45;
-    if (shuttlerun <= 23.2) return 44;
-    if (shuttlerun <= 23.3) return 43;
-    if (shuttlerun <= 23.4) return 42;
-    if (shuttlerun <= 23.5) return 41;
-    if (shuttlerun <= 23.6) return 40;
-    if (shuttlerun <= 23.7) return 39;
-    if (shuttlerun <= 23.8) return 38;
-    if (shuttlerun <= 23.9) return 37;
-    if (shuttlerun <= 24) return 36;
-    if (shuttlerun <= 24.1) return 35;
-    if (shuttlerun <= 24.2) return 34;
-    if (shuttlerun <= 24.3) return 33;
-    if (shuttlerun <= 24.4) return 32;
-    if (shuttlerun <= 24.5) return 31;
-    if (shuttlerun <= 24.6) return 30;
-    if (shuttlerun <= 24.7) return 29;
-    if (shuttlerun <= 24.8) return 28;
-    if (shuttlerun <= 24.9) return 27;
-    if (shuttlerun <= 25) return 26;
-    if (shuttlerun <= 25.1) return 25;
-    if (shuttlerun <= 25.2) return 24;
-    if (shuttlerun <= 25.3) return 23;
-    if (shuttlerun <= 25.4) return 22;
-    if (shuttlerun <= 25.5) return 21;
-    if (shuttlerun <= 25.6) return 20;
-    if (shuttlerun <= 25.7) return 19;
-    if (shuttlerun <= 25.8) return 18;
-    if (shuttlerun <= 25.9) return 17;
-    if (shuttlerun <= 26) return 16;
-    if (shuttlerun <= 26.1) return 15;
-    if (shuttlerun <= 26.2) return 14;
-    if (shuttlerun <= 26.3) return 13;
-    if (shuttlerun <= 26.4) return 12;
-    if (shuttlerun <= 26.5) return 11;
-    if (shuttlerun <= 26.6) return 10;
-    if (shuttlerun <= 26.7) return 9;
-    if (shuttlerun <= 26.8) return 8;
-    if (shuttlerun <= 26.9) return 7;
-    if (shuttlerun <= 27) return 6;
-    if (shuttlerun <= 27.1) return 5;
-    if (shuttlerun <= 27.2) return 4;
-    if (shuttlerun <= 27.3) return 3;
-    if (shuttlerun <= 27.4) return 2;
-    if (shuttlerun <= 27.5) return 1;
-    if (shuttlerun <= 27.6) return 0;
-
+    if (shuttlerun > 17.7) return 100;
+    if (shuttlerun >= 17.6 && shuttlerun < 17.7) return 100; 
+    if (shuttlerun >= 17.7 && shuttlerun < 17.8) return 99; 
+    if (shuttlerun >= 17.8 && shuttlerun < 17.9) return 98; 
+    if (shuttlerun >= 17.9 && shuttlerun < 18) return 97; 
+    if (shuttlerun >= 18 && shuttlerun < 18.1) return 96; 
+    if (shuttlerun >= 18.1 && shuttlerun < 18.2) return 95; 
+    if (shuttlerun >= 18.2 && shuttlerun < 18.3) return 94; 
+    if (shuttlerun >= 18.3 && shuttlerun < 18.4) return 93; 
+    if (shuttlerun >= 18.4 && shuttlerun < 18.5) return 92; 
+    if (shuttlerun >= 18.5 && shuttlerun < 18.6) return 91; 
+    if (shuttlerun >= 18.6 && shuttlerun < 18.7) return 90; 
+    if (shuttlerun >= 18.7 && shuttlerun < 18.8) return 89; 
+    if (shuttlerun >= 18.8 && shuttlerun < 18.9) return 88; 
+    if (shuttlerun >= 18.9 && shuttlerun < 19) return 87; 
+    if (shuttlerun >= 19 && shuttlerun < 19.1) return 86; 
+    if (shuttlerun >= 19.1 && shuttlerun < 19.2) return 85; 
+    if (shuttlerun >= 19.2 && shuttlerun < 19.3) return 84; 
+    if (shuttlerun >= 19.3 && shuttlerun < 19.4) return 83; 
+    if (shuttlerun >= 19.4 && shuttlerun < 19.5) return 82; 
+    if (shuttlerun >= 19.5 && shuttlerun < 19.6) return 81; 
+    if (shuttlerun >= 19.6 && shuttlerun < 19.7) return 80; 
+    if (shuttlerun >= 19.7 && shuttlerun < 19.8) return 79; 
+    if (shuttlerun >= 19.8 && shuttlerun < 19.9) return 78; 
+    if (shuttlerun >= 19.9 && shuttlerun < 20) return 77; 
+    if (shuttlerun >= 20 && shuttlerun < 20.1) return 76; 
+    if (shuttlerun >= 20.1 && shuttlerun < 20.2) return 75; 
+    if (shuttlerun >= 20.2 && shuttlerun < 20.3) return 74; 
+    if (shuttlerun >= 20.3 && shuttlerun < 20.4) return 73; 
+    if (shuttlerun >= 20.4 && shuttlerun < 20.5) return 72; 
+    if (shuttlerun >= 20.5 && shuttlerun < 20.6) return 71; 
+    if (shuttlerun >= 20.6 && shuttlerun < 20.7) return 70; 
+    if (shuttlerun >= 20.7 && shuttlerun < 20.8) return 69; 
+    if (shuttlerun >= 20.8 && shuttlerun < 20.9) return 68; 
+    if (shuttlerun >= 20.9 && shuttlerun < 21) return 67; 
+    if (shuttlerun >= 21 && shuttlerun < 21.1) return 66; 
+    if (shuttlerun >= 21.1 && shuttlerun < 21.2) return 65; 
+    if (shuttlerun >= 21.2 && shuttlerun < 21.3) return 64; 
+    if (shuttlerun >= 21.3 && shuttlerun < 21.4) return 63; 
+    if (shuttlerun >= 21.4 && shuttlerun < 21.5) return 62; 
+    if (shuttlerun >= 21.5 && shuttlerun < 21.6) return 61; 
+    if (shuttlerun >= 21.6 && shuttlerun < 21.7) return 60; 
+    if (shuttlerun >= 21.7 && shuttlerun < 21.8) return 59; 
+    if (shuttlerun >= 21.8 && shuttlerun < 21.9) return 58; 
+    if (shuttlerun >= 21.9 && shuttlerun < 22) return 57; 
+    if (shuttlerun >= 22 && shuttlerun < 22.1) return 56; 
+    if (shuttlerun >= 22.1 && shuttlerun < 22.2) return 55; 
+    if (shuttlerun >= 22.2 && shuttlerun < 22.3) return 54; 
+    if (shuttlerun >= 22.3 && shuttlerun < 22.4) return 53; 
+    if (shuttlerun >= 22.4 && shuttlerun < 22.5) return 52; 
+    if (shuttlerun >= 22.5 && shuttlerun < 22.6) return 51; 
+    if (shuttlerun >= 22.6 && shuttlerun < 22.7) return 50; 
+    if (shuttlerun >= 22.7 && shuttlerun < 22.8) return 49; 
+    if (shuttlerun >= 22.8 && shuttlerun < 22.9) return 48; 
+    if (shuttlerun >= 22.9 && shuttlerun < 23) return 47; 
+    if (shuttlerun >= 23 && shuttlerun < 23.1) return 46; 
+    if (shuttlerun >= 23.1 && shuttlerun < 23.2) return 45; 
+    if (shuttlerun >= 23.2 && shuttlerun < 23.3) return 44; 
+    if (shuttlerun >= 23.3 && shuttlerun < 23.4) return 43; 
+    if (shuttlerun >= 23.4 && shuttlerun < 23.5) return 42; 
+    if (shuttlerun >= 23.5 && shuttlerun < 23.6) return 41; 
+    if (shuttlerun >= 23.6 && shuttlerun < 23.7) return 40; 
+    if (shuttlerun >= 23.7 && shuttlerun < 23.8) return 39; 
+    if (shuttlerun >= 23.8 && shuttlerun < 23.9) return 38; 
+    if (shuttlerun >= 23.9 && shuttlerun < 24) return 37; 
+    if (shuttlerun >= 24 && shuttlerun < 24.1) return 36; 
+    if (shuttlerun >= 24.1 && shuttlerun < 24.2) return 35; 
+    if (shuttlerun >= 24.2 && shuttlerun < 24.3) return 34; 
+    if (shuttlerun >= 24.3 && shuttlerun < 24.4) return 33; 
+    if (shuttlerun >= 24.4 && shuttlerun < 24.5) return 32; 
+    if (shuttlerun >= 24.5 && shuttlerun < 24.6) return 31; 
+    if (shuttlerun >= 24.6 && shuttlerun < 24.7) return 30; 
+    if (shuttlerun >= 24.7 && shuttlerun < 24.8) return 29; 
+    if (shuttlerun >= 24.8 && shuttlerun < 24.9) return 28; 
+    if (shuttlerun >= 24.9 && shuttlerun < 25) return 27; 
+    if (shuttlerun >= 25 && shuttlerun < 25.1) return 26; 
+    if (shuttlerun >= 25.1 && shuttlerun < 25.2) return 25; 
+    if (shuttlerun >= 25.2 && shuttlerun < 25.3) return 24; 
+    if (shuttlerun >= 25.3 && shuttlerun < 25.4) return 23; 
+    if (shuttlerun >= 25.4 && shuttlerun < 25.5) return 22; 
+    if (shuttlerun >= 25.5 && shuttlerun < 25.6) return 21; 
+    if (shuttlerun >= 25.6 && shuttlerun < 25.7) return 20; 
+    if (shuttlerun >= 25.7 && shuttlerun < 25.8) return 19; 
+    if (shuttlerun >= 25.8 && shuttlerun < 25.9) return 18; 
+    if (shuttlerun >= 25.9 && shuttlerun < 26) return 17; 
+    if (shuttlerun >= 26 && shuttlerun < 26.1) return 16; 
+    if (shuttlerun >= 26.1 && shuttlerun < 26.2) return 15; 
+    if (shuttlerun >= 26.2 && shuttlerun < 26.3) return 14; 
+    if (shuttlerun >= 26.3 && shuttlerun < 26.4) return 13; 
+    if (shuttlerun >= 26.4 && shuttlerun < 26.5) return 12; 
+    if (shuttlerun >= 26.5 && shuttlerun < 26.6) return 11; 
+    if (shuttlerun >= 26.6 && shuttlerun < 26.7) return 10; 
+    if (shuttlerun >= 26.7 && shuttlerun < 26.8) return 9; 
+    if (shuttlerun >= 26.8 && shuttlerun < 26.9) return 8; 
+    if (shuttlerun >= 26.9 && shuttlerun < 27) return 7; 
+    if (shuttlerun >= 27 && shuttlerun < 27.1) return 6; 
+    if (shuttlerun >= 27.1 && shuttlerun < 27.2) return 5; 
+    if (shuttlerun >= 27.2 && shuttlerun < 27.3) return 4; 
+    if (shuttlerun >= 27.3 && shuttlerun < 27.4) return 3; 
+    if (shuttlerun >= 27.4 && shuttlerun < 27.5) return 2; 
+    if (shuttlerun >= 27.5 && shuttlerun < 27.6) return 1; 
+    if (shuttlerun >= 27.6) return 0; 
     return 0;
   }
 };
@@ -656,6 +657,7 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
     // Fungsi untuk menghitung nilai Renang berdasarkan jenis kelamin
     const hitungNilaiRenang = (renang: number, jenisKelamin: string) => {
       if (jenisKelamin === 'pria') {
+        if (renang > 14.69) return 100;
         if (renang >= 14.00 && renang <= 14.69) return 100;
         if (renang >= 14.70 && renang <= 15.39) return 99;
         if (renang >= 15.40 && renang <= 16.9) return 98;
@@ -718,6 +720,7 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
         if (renang >= 55.00) return 41;
         return 0;
       } else {
+        if (renang > 20.69) return 100;
         if (renang >= 20.00 && renang <= 20.69) return 100; // Contoh untuk renang wanita
         if (renang >= 20.70 && renang <= 21.29) return 99;
         if (renang >= 21.30 && renang <= 21.99) return 98;
@@ -782,35 +785,55 @@ const hitungNilaiShuttleRun = (shuttlerun: number, jenisKelamin: string) => {
       }
     };
 
+  
 
 
   // Fungsi handler ketika nilai input berubah
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: Number(value),
-    });
+    let currentValue: number;
+    currentValue = Number(value); 
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: currentValue,
+    }));
 
     // Update nilai langsung saat mengetik
     if (name === 'lari') {
-      setNilaiLari(hitungNilaiLari(Number(value), jenisKelamin));
+      setNilaiLari(hitungNilaiLari(currentValue, jenisKelamin));
     } else if (name === 'pullUp') {
-      setNilaiPullUp(hitungNilaiPullUp(Number(value), jenisKelamin));
+      setNilaiPullUp(hitungNilaiPullUp(currentValue, jenisKelamin));
     } else if (name === 'sitUp') {
-      setNilaiSitUp(hitungNilaiSitUp(Number(value), jenisKelamin));
+      setNilaiSitUp(hitungNilaiSitUp(currentValue, jenisKelamin));
     } else if (name === 'pushUp') {
-      setNilaiPushUp(hitungNilaiPushUp(Number(value), jenisKelamin));
+      setNilaiPushUp(hitungNilaiPushUp(currentValue, jenisKelamin));
     } else if (name === 'shuttleRun') {
-      setNilaiShuttleRun(hitungNilaiShuttleRun(Number(value), jenisKelamin));
+      setNilaiShuttleRun(hitungNilaiShuttleRun(currentValue, jenisKelamin));
     } else if (name === 'renang') {
-      setNilaiRenang(hitungNilaiRenang(Number(value), jenisKelamin));
+      setNilaiRenang(hitungNilaiRenang(currentValue, jenisKelamin));
     }
   };
 
   // Fungsi handler ketika dropdown jenis kelamin berubah
   const handleGenderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setJenisKelamin(e.target.value);
+    setFormData({
+      lari: 0,
+      pullUp: 0,
+      sitUp: 0,
+      pushUp: 0,
+      shuttleRun: 0,
+      renang: 0,
+    });
+
+    // setNilaiLari(0);
+    // setNilaiPullUp(0);
+    // setNilaiSitUp(0);
+    // setNilaiPushUp(0);
+    // setNilaiShuttleRun(0);
+    // setNilaiRenang(0);
+    // setNilaiRataRata(0);
   };
 
     // Fungsi untuk menghitung rata-rata

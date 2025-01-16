@@ -22,7 +22,7 @@ const Main = (props: { page: MainRoutes }) => {
             case MainRoutes.ROUTE_CALCULATOR:
               return <CalculatorPage />;
             case MainRoutes.ROUTE_TEST_THOROUGHNESS:
-              return <TestThoroughnessPage />;
+              return <TestThoroughnessPage/>;
             case MainRoutes.ROUTE_HOME:
               return <HomePage />;
             case MainRoutes.ROUTE_LOGIN:

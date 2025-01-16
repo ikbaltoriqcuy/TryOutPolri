@@ -10,8 +10,20 @@ import {
   Grid,
 } from "@mui/material";
 import useLogin from "./hook/UseLogin";
+import {getCache, CACHE_KEY } from "../../../../cache/CacheUtils";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+  const cache = getCache(CACHE_KEY);
+  const navigate = useNavigate();
+
+
+  setTimeout(() => {
+    if (cache != null) {
+      navigate("/dashboard");
+    }
+  }, 0);
 
   const {
     loading,

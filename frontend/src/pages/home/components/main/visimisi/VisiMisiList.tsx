@@ -12,7 +12,7 @@ const VisiMisiList = () => {
           right: 0,
           width: '84%',
           height: '100%',
-          bgcolor: '#f1db25',
+          bgcolor: '#f5cb42',
           borderTopLeftRadius: '500px',
           borderBottomLeftRadius: '500px',
           zIndex: -1,
@@ -21,8 +21,7 @@ const VisiMisiList = () => {
       <Container
        sx={{
         paddingY: "16px",
-        marginTop: "120px", // Menambahkan margin-top 120px
-        // maxWidth: "1320px !important",
+        marginTop: "120px",
       }}
       >
         <Grid container spacing={4}>

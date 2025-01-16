@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Button } from '@mui/material';
-import { Link } from "react-router-dom"; // Import Link
+import { Box, Container, Grid, Typography, Button, Link} from '@mui/material';
 
 const Jumbotron = () => {
   return (
@@ -84,7 +83,7 @@ const Jumbotron = () => {
                   zIndex: 1, // Pastikan teks berada di atas overlay
                 }}
               >
-              <Link to="http://localhost:5173/Login" style={{ textDecoration: 'none' }}>
+              <Link href="/register" style={{ textDecoration: 'none' }}>
                 <Button
                   variant="contained"
                   sx={{

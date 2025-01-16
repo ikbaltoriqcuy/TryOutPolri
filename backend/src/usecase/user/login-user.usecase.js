@@ -9,10 +9,10 @@ const loginUser = ({
     }
   
     const bcrypt = require('bcrypt');
-    const isValidPas = await bcrypt.compare(info.password, user.rows[0].password);
+    const isValidPas = await bcrypt.compare(info.password, user.password);
 
     if (isValidPas) {
-      return user.rows[0];
+      return user;
     } else {
       throw new Error("Incorrect Password!");
     }
